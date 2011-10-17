@@ -1,6 +1,0 @@
-BAKALARSKA PRACA - MARIAN RUSNAK - TEAMOVE UCTOVNICTVO
-
-Teamove uctovnictvo bude webova aplikacia na spravu uctovnictva pre sportovy team.
-
-Pre podrobnejsie informacie pozri project wiki:
-https://github.com/MarosPixel/team-ucto/wiki
