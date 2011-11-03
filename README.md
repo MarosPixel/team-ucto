@@ -1,4 +1,4 @@
-BAKALARSKA PRACA - TEAMOVE UCTOVNICTVO by MARIAN RUSNAK
+BAKALARSKA PRACA - TEAMOVE UCTOVNICTVO
 
 Teamove uctovnictvo je webova aplikacia na spravu uctovnictva pre sportovy team.
 
