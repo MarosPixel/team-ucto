@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email_id: 1
+  datum_transakcie: 1
+  predcislo_uctu: 1
+  cislo_uctu: 1
+  suma: 9.99
+  kod_meny: MyString
+  vs: 1
+  poznamka: MyText
+  sprava_pre_prijemcu: MyText
+  unparsed_transaction: MyText
+
+two:
+  email_id: 1
+  datum_transakcie: 1
+  predcislo_uctu: 1
+  cislo_uctu: 1
+  suma: 9.99
+  kod_meny: MyString
+  vs: 1
+  poznamka: MyText
+  sprava_pre_prijemcu: MyText
+  unparsed_transaction: MyText

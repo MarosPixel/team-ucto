@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  name: MyString
+  start_at: 2011-11-05 00:10:14
+  end_at: 2011-11-05 00:10:14
+  total_price: 9.99
+  team_fee: 9.99
+  player_fee: 9.99
+  creator_id: 
+  locked_at: 2011-11-05 00:10:14
+  description: MyText
+
+two:
+  type: 
+  name: MyString
+  start_at: 2011-11-05 00:10:14
+  end_at: 2011-11-05 00:10:14
+  total_price: 9.99
+  team_fee: 9.99
+  player_fee: 9.99
+  creator_id: 
+  locked_at: 2011-11-05 00:10:14
+  description: MyText

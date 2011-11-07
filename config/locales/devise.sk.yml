@@ -1,0 +1,63 @@
+#
+# Slovak translation for Devise - config/locales/devise.sk.yml
+# 'sk' locale by https://github.com/MarosPixel
+# Feel free to correct my translation.
+#
+# Additional translations at http://github.com/plataformatec/devise/wiki/I18n
+
+sk:
+  errors:
+    messages:
+      expired: "expiroval, prosím, vyžiadajte si nový"
+      not_found: "nenájdeny"
+      already_confirmed: "bol už potvrdený, skúste sa prihlásiť"
+      not_locked: "nebol uzamknutý"
+      not_saved:
+        one: "%{resource} nebol uložený kôli chybe:"
+        other: "%{resource} nebol uložený kôli %{count} chybám:"
+
+  devise:
+    failure:
+      already_authenticated: 'Už ste prihláseny.'
+      unauthenticated: 'Musíte sa zaregistrovať alebo odhlásiť, potom možete pokračovať.'
+      unconfirmed: 'Musíte potvrdiť svoj účet, potom možete pokračovať.'
+      locked: 'Váš účet je  uzamknutý.'
+      invalid: 'Nesprávny email alebo heslo.'
+      invalid_token: 'Nesprávny overovací symbol.'
+      timeout: 'Platnosť session vypršala, prosím prihláste sa znovu, potom môžete pokračovať.'
+      inactive: 'Váš účet ešte nebol aktivovaný.'
+    sessions:
+      signed_in: 'Prihlásenie úspešné.'
+      signed_out: 'Odhlásenie úspešné.'
+    passwords:
+      send_instructions: 'O niekoľko minút obdržíte email s inštrukciami ako nastaviť nové heslo.'
+      send_paranoid_instructions: 'Ak sa váš email nachádza v našej databáze, obdržíte odkaz na obnovu hesla na svoj email.'
+      updated: 'Vaše heslo bolo úspešne zmenené. Teraz ste prihláseny.'
+      updated_not_active: 'Vaše heslo bolo úspešne zmenené.'
+    confirmations:
+      send_instructions: 'O niekoľko minút obdržíte email s inštrukciami ako potvrdiť váš účet.'
+      send_paranoid_instructions: 'Ak sa váš email nachádza v našej databáze, obdržíte email s inštrukciami ako potvrdiť váš účet.'
+      confirmed: 'Váš účet bol úspešne overený. Teraz ste prihláseny.'
+    registrations:
+      signed_up: 'Vitajte! Registrácia bola úspešná.'
+      inactive_signed_up: "Registrácia bola úspešná. Avšak, nemôžeme vás prihlásiť, pretože váš účet je %{reason}."
+      updated: 'Váš účet bol úspešne aktualizovaný.'
+      destroyed: 'Dovidenia! Váš účet bol úspešne zrušený. Dúfame, že sa čoskoro opäť uvidíme.'
+      reasons:
+        inactive: 'neaktívny'
+        unconfirmed: 'neoverený'
+        locked: 'uzamknutý'
+    unlocks:
+      send_instructions: 'O niekoľko minút obdržíte email s inštrukciami ako odomknúť vaš účet.'
+      unlocked: 'Váš účet bol úspešne odomknutý. Teraz ste prihláseny'
+      send_paranoid_instructions: 'Ak váš účet existuje, o niekoľko minút obdržíte email s inštrukciami ako ho odomknúť.'
+    omniauth_callbacks:
+      success: "Úspešná autorizácia z účtu %{kind}."
+      failure: "Nie je možné vás autorizovať z %{kind}, pretože %{reason}."
+    mailer:
+      confirmation_instructions:
+        subject: 'Potvrdzovacie inštrukcie.'
+      reset_password_instructions:
+        subject: 'Inštrukcie na obnovu hesla.'
+      unlock_instructions:
+        subject: 'Inštrukcie na odomknutie účtu.'
