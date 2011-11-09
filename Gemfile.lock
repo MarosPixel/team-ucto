@@ -34,6 +34,7 @@ GEM
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.0)
     cancan (1.6.7)
+    closure-compiler (1.1.4)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.1.0)
@@ -119,9 +120,6 @@ GEM
     turn (0.8.3)
       ansi
     tzinfo (0.3.30)
-    uglifier (1.0.4)
-      execjs (>= 0.3.0)
-      multi_json (>= 1.0.2)
     warden (1.0.6)
       rack (>= 1.0)
 
@@ -130,6 +128,7 @@ PLATFORMS
 
 DEPENDENCIES
   cancan
+  closure-compiler
   coffee-rails (~> 3.1.1)
   devise
   haml-rails
@@ -140,4 +139,3 @@ DEPENDENCIES
   simple_form
   sqlite3
   turn
-  uglifier (>= 1.0.3)

@@ -58,6 +58,9 @@ TeamUcto::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  # Zmeneny compressor js suborov
+  config.assets.js_compressor = :closure
+
   config.action_mailer.default_url_options = { host: 'team-ucto.heroku.com' }
 
   config.action_mailer.delivery_method = :smtp
