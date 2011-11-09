@@ -29,6 +29,8 @@ div {
 
 #notice {
   color: green; }
+#alert {
+  color: red; }
 
 .field_with_errors {
   padding: 2px;
@@ -54,3 +56,14 @@ div {
   ul li {
     font-size: 12px;
     list-style: square; } }
+
+
+.tleft {
+  text-align: left
+  }
+.tright {
+  text-align: right
+  }
+.tcenter {
+  text-align: center
+  }

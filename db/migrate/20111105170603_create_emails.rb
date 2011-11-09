@@ -6,5 +6,6 @@ class CreateEmails < ActiveRecord::Migration
       t.text   :unparsed_content
       t.timestamps
     end
+    add_index :emails, :state
   end
 end

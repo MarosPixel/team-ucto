@@ -13,5 +13,6 @@ class CreateEvents < ActiveRecord::Migration
       t.timestamps
       t.text     :description
     end
+    add_index :events, :event_type
   end
 end

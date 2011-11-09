@@ -1,0 +1,43 @@
+%table
+  %tr
+    %th.tleft VS:
+    %td= @user.vs
+  %tr
+    %th.tleft Name:
+    %td= @user.name
+  %tr
+    %th.tleft Email:
+    %td= @user.email
+  %tr
+    %th.tleft Role:
+    %td= @user.role
+  %tr
+    %th.tleft Approved:
+    %td= @user.approved
+  %tr
+    %th.tleft Sign in count:
+    %td= @user.sign_in_count
+  %tr
+    %th.tleft Current sign in at:
+    %td= @user.current_sign_in_at
+  %tr
+    %th.tleft Last sign in at
+    %td= @user.last_sign_in_at
+  %tr
+    %th.tleft Current sign in IP
+    %td= @user.current_sign_in_ip
+  %tr
+    %th.tleft Last sign in IP
+    %td= @user.last_sign_in_ip
+  %tr
+    %th.tleft Created at
+    %td= @user.created_at
+  %tr
+    %th.tleft Updated at
+    %td= @user.updated_at
+
+  -# TODO doplnit ostatne kolonky + userove eventy, postingy...
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', :back

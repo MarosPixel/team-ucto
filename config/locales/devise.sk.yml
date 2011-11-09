@@ -26,6 +26,7 @@ sk:
       invalid_token: 'Nesprávny overovací symbol.'
       timeout: 'Platnosť session vypršala, prosím prihláste sa znovu, potom môžete pokračovať.'
       inactive: 'Váš účet ešte nebol aktivovaný.'
+      not_approved: 'Váš účet ešte nebol aktivovaný administrátorom.'
     sessions:
       signed_in: 'Prihlásenie úspešné.'
       signed_out: 'Odhlásenie úspešné.'

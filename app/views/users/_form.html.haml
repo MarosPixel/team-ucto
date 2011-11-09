@@ -1,0 +1,11 @@
+= simple_form_for @user do |f|
+  = f.error_notification
+  
+  .inputs
+    = f.input :name
+    = f.input :email
+    = f.input :role, collection: User::ROLES, include_blank: false
+    = f.input :approved
+
+  .actions
+    = f.button :submit
