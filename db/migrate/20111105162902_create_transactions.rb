@@ -5,7 +5,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.integer :datum_transakcie
       t.integer :predcislo_uctu
       t.integer :cislo_uctu
-      t.decimal :suma,                precision: 6, scale: 2
+      t.decimal :suma,                precision: 8, scale: 2
       t.string  :kod_meny
       t.integer :vs
       t.text    :poznamka
@@ -13,5 +13,6 @@ class CreateTransactions < ActiveRecord::Migration
       t.text    :unparsed_transaction
       t.timestamps
     end
+    add_index :transactions, :email_id
   end
 end

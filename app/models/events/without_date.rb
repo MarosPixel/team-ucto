@@ -1,0 +1,2 @@
+class WithoutDate < Event
+end

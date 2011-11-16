@@ -10,4 +10,20 @@
     %p#alert= alert
     %p#notice= notice
 
+    - if user_signed_in?
+      .menu
+        %b= current_user.name
+        |
+        = link_to 'Home', root_path
+        |
+        = link_to 'Users', users_path
+        |
+        = link_to 'Events', events_path
+        |
+        = link_to 'Participation', participation_path
+        |
+        = link_to 'Profile', edit_user_registration_path
+        |
+        = link_to 'Logout', destroy_user_session_path, method: :delete
+
     = yield

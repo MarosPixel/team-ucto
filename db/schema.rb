@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(:version => 20111105170603) do
   add_index "emails", ["state"], :name => "index_emails_on_state"
 
   create_table "events", :force => true do |t|
-    t.string   "event_type",                                :default => "without_date", :null => false
+    t.string   "type",                                      :null => false
     t.string   "name"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.decimal  "total_price", :precision => 6, :scale => 2
-    t.decimal  "team_fee",    :precision => 6, :scale => 2
-    t.decimal  "player_fee",  :precision => 6, :scale => 2
+    t.decimal  "total_price", :precision => 8, :scale => 2
+    t.decimal  "team_fee",    :precision => 8, :scale => 2
+    t.decimal  "player_fee",  :precision => 8, :scale => 2
     t.integer  "creator_id"
     t.datetime "locked_at"
     t.datetime "created_at"
@@ -38,14 +38,14 @@ ActiveRecord::Schema.define(:version => 20111105170603) do
     t.text     "description"
   end
 
-  add_index "events", ["event_type"], :name => "index_events_on_event_type"
+  add_index "events", ["type"], :name => "index_events_on_type"
 
   create_table "postings", :force => true do |t|
     t.string   "type",                                         :null => false
     t.integer  "event_id"
     t.integer  "user_id"
     t.integer  "transaction_id"
-    t.decimal  "price",          :precision => 6, :scale => 2
+    t.decimal  "price",          :precision => 8, :scale => 2
     t.integer  "creator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20111105170603) do
     t.integer  "datum_transakcie"
     t.integer  "predcislo_uctu"
     t.integer  "cislo_uctu"
-    t.decimal  "suma",                 :precision => 6, :scale => 2
+    t.decimal  "suma",                 :precision => 8, :scale => 2
     t.string   "kod_meny"
     t.integer  "vs"
     t.text     "poznamka"
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(:version => 20111105170603) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "transactions", ["email_id"], :name => "index_transactions_on_email_id"
 
   create_table "users", :force => true do |t|
     t.integer  "vs",                                                          :null => false

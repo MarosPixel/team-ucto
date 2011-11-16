@@ -1,0 +1,16 @@
+= simple_form_for(@event) do |f|
+  = f.error_notification
+  = f.input :type, as: :hidden
+  
+  .inputs
+    = f.input :name
+    = f.input :start_at
+    = f.input :end_at
+    = f.input :total_price
+    = f.input :team_fee
+    = f.input :player_fee
+    = f.input :locked_at
+    = f.input :description
+
+  .actions
+    = f.button :submit

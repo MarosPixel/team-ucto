@@ -1,0 +1,45 @@
+%table
+  %tr
+    %th Id:
+    %td= @event.id
+  %tr
+    %th Type:
+    %td= @event.type
+  %tr
+    %th Name:
+    %td= @event.name
+  %tr
+    %th Start at:
+    %td= @event.start_at
+  %tr
+    %th End at:
+    %td= @event.start_at
+  %tr
+    %th Total price:
+    %td= @event.total_price
+  %tr
+    %th Team fee:
+    %td= @event.team_fee
+  %tr
+    %th Player fee:
+    %td= @event.player_fee
+  %tr
+    %th Creator:
+    %td= link_to @event.creator.name, user_path(@event.creator)
+  %tr
+    %th Created at:
+    %th= @event.created_at
+  %tr
+    %th Updated_at
+    %td= @event.updated_at
+  %tr
+    %th Locked at:
+    %td= @event.locked_at
+  %tr
+    %th Description:
+    %td= @event.description
+
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path

@@ -1,0 +1,16 @@
+%h1 Participation
+
+%table.center
+  %tr
+    %th
+    - @events.each do |event|
+      %th= event.name
+  - @users.each do |user|
+    %tr
+      %th= user.name
+      - @events.each do |event|
+        %td
+          - if event.users.where(id: user.id).first.nil?
+            = button_to '+', participation_path(eid: event.id, uid: user.id), method: :post
+          - else
+            = button_to '-', participation_path(eid: event.id, uid: user.id), method: :delete

@@ -1,13 +1,11 @@
 class User < ActiveRecord::Base
   ROLES = %w{ member admin super_admin }
 
-  # Relationships
-  has_many :member_bank_postings
-  has_many :member_cash_postings
+  # Associations
+  has_many :member_postings
   has_many :participation_postings
-  has_many :events, through: :participation_posting
+  has_many :events, through: :participation_postings
   has_many :created_events, class_name: 'Event', foreign_key: :creator_id
-  has_many :created_postings, class_name: 'CashPosting', foreign_key: :creator_id
   devise :database_authenticatable, :recoverable, :registerable, 
          :rememberable, :trackable, :validatable # definovat vlastnu validaciu
 
