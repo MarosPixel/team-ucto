@@ -6,24 +6,28 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-
-    %p#alert= alert
-    %p#notice= notice
-
+    
     - if user_signed_in?
-      .menu
-        %b= current_user.name
-        |
-        = link_to 'Home', root_path
-        |
-        = link_to 'Users', users_path
-        |
-        = link_to 'Events', events_path
-        |
-        = link_to 'Participation', participation_path
-        |
-        = link_to 'Profile', edit_user_registration_path
-        |
-        = link_to 'Logout', destroy_user_session_path, method: :delete
+      
+      #beta BETA
+      
+      #header
+        #top-menu
+          = link_to_s 'Home', root_path, 'home'
+          = link_to_s 'Users', users_path, 'users'
+          = link_to_s 'Events', events_path, 'events'
+          = link_to_s 'Participation', participation_path, 'participation'
 
-    = yield
+          .fright
+            %b= current_user.name
+            = link_to_s 'My profile', edit_user_registration_path, 'devise/registrations'
+            = link_to 'Logout', destroy_user_session_path, method: :delete
+          
+          .clear
+
+    #content
+
+      %p#alert= alert
+      %p#notice= notice
+
+      = yield

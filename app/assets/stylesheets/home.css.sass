@@ -1,3 +1,87 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$border-color: #ebebeb
+$bg-dark: #333
+
+/* mixins */
+@mixin rotate($value)
+  transform: rotate($value)
+  -o-transform: rotate($value)
+  -ms-transform: rotate($value)
+  -moz-transform: rotate($value)
+  -webkit-transform: rotate($value)
+@mixin transition($value)
+  transition: $value
+  -o-transition: $value
+  -ms-transition: $value
+  -moz-transition: $value
+  -webkit-transition: $value
+
+.button,
+input[type=submit]
+  border: 1px solid #ccc
+  background-color: #ddd
+  padding: 4px 8px
+  border-radius: 3px
+  color: #888
+  &:hover
+    color: #777
+    border-color: #aaa
+    box-shadow: 0 0 7px #aaa
+
+#top-menu
+  border-bottom: 2px solid $border-color
+  color: #cdcdcd
+  background-color: $bg-dark
+  padding: 1px 7px 0
+
+  a,
+  b
+    text-decoration: none
+    padding: 6px
+    color: #cdcdcd
+    xtext-shadow: #777 0px 0px 3px
+    float: left
+    display: block
+    xborder-radius: 3px 3px 0 0
+    border-bottom: 1px solid $bg-dark
+    margin-left: 1px
+  
+  a:hover,
+  a.selected
+    background-color: #444
+  a.selected
+    border-color: #cdcdcd
+
+#content
+  padding: 10px
+
+.tleft
+  text-align: left
+.tright
+  text-align: right
+.tcenter
+  text-align: center
+
+.fleft
+  float: left
+.fright
+  float: right
+.clear
+  clear: both
+
+
+#beta
+  // @include rotate(45deg)
+  background-color: #FF4411
+  color: #FFFFFF
+  font-family: helvetica
+  font-size: 130%
+  font-weight: bold
+  border-radius: 5px
+  padding: 5px 12px
+  position: absolute
+  right: -64px
+  top: 2px
+  @include transition(right .5s)
+  &:hover
+    right: -4px
+    @include transition(right 1.5s)

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable # definovat vlastnu validaciu
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :vs, :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :vs, :name, :email, :password, :password_confirmation, :remember_me, :approved
 
   # Validations
   validate :role, inclusion: ROLES
