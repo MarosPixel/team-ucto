@@ -1,14 +1,14 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.integer  :vs,             null: false
+      t.integer  :vs
       t.string   :name,           null: false
       t.database_authenticatable  null: false
       t.string   :role,           null: false, default: "member"
       t.recoverable
       t.rememberable
       t.trackable
-      t.boolean  :approved,       null: false, default: false
+      t.boolean  :is_approved,       null: false, default: false
       t.timestamps
     end
     add_index :users, :vs,                   unique: true

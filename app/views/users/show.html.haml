@@ -16,7 +16,7 @@
     %td= @user.role
   %tr
     %th.tleft Approved:
-    %td= @user.approved
+    %td= @user.is_approved
   %tr
     %th.tleft Sign in count:
     %td= @user.sign_in_count
@@ -43,4 +43,4 @@
 
 = link_to 'Edit', edit_user_path(@user)
 \|
-= link_to 'Back', :back
+= link_to 'Back', users_path

@@ -12,6 +12,6 @@ class CreatePostings < ActiveRecord::Migration
     add_index :postings, :type
     add_index :postings, :event_id
     add_index :postings, :user_id
-    # add_index :postings, :transaction_id
+    add_index :postings, :transaction_id
   end
 end

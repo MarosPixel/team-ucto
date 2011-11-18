@@ -13,7 +13,7 @@
     %th{colspan: 2}
   - @users.each do |user|
     %tr
-      %td= user.approved
+      %td= user.is_approved
       %td= user.name
       %td= user.email
       %td= user.vs
