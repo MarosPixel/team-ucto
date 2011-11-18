@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111105170603) do
+ActiveRecord::Schema.define(:version => 20111117235151) do
+
+  create_table "action_logs", :force => true do |t|
+    t.integer  "creator_id"
+    t.string   "trackable_type", :null => false
+    t.integer  "trackable_id",   :null => false
+    t.string   "action",         :null => false
+    t.text     "comment"
+    t.datetime "created_at"
+  end
+
+  add_index "action_logs", ["creator_id"], :name => "index_action_logs_on_creator_id"
+  add_index "action_logs", ["trackable_id"], :name => "index_action_logs_on_trackable_id"
+  add_index "action_logs", ["trackable_type"], :name => "index_action_logs_on_trackable_type"
 
   create_table "emails", :force => true do |t|
     t.string   "state"
@@ -52,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20111105170603) do
   end
 
   add_index "postings", ["event_id"], :name => "index_postings_on_event_id"
+  add_index "postings", ["transaction_id"], :name => "index_postings_on_transaction_id"
   add_index "postings", ["type"], :name => "index_postings_on_type"
   add_index "postings", ["user_id"], :name => "index_postings_on_user_id"
 
@@ -73,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20111105170603) do
   add_index "transactions", ["email_id"], :name => "index_transactions_on_email_id"
 
   create_table "users", :force => true do |t|
-    t.integer  "vs",                                                          :null => false
+    t.integer  "vs"
     t.string   "name",                                                        :null => false
     t.string   "email",                                 :default => "",       :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "",       :null => false
@@ -86,7 +100,7 @@ ActiveRecord::Schema.define(:version => 20111105170603) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "approved",                              :default => false,    :null => false
+    t.boolean  "is_approved",                           :default => false,    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
