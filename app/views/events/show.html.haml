@@ -25,7 +25,7 @@
     %td= @event.player_fee
   %tr
     %th Creator:
-    %td= link_to @event.creator.name, user_path(@event.creator)
+    %td= link_to @event.creator.username, user_path(@event.creator)
   %tr
     %th Created at:
     %th= @event.created_at

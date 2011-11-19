@@ -11,20 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111117235151) do
+ActiveRecord::Schema.define(:version => 20111119011243) do
 
-  create_table "action_logs", :force => true do |t|
-    t.integer  "creator_id"
-    t.string   "trackable_type", :null => false
-    t.integer  "trackable_id",   :null => false
-    t.string   "action",         :null => false
-    t.text     "comment"
+  create_table "audits", :force => true do |t|
+    t.integer  "auditable_id"
+    t.string   "auditable_type"
+    t.integer  "associated_id"
+    t.string   "associated_type"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "username"
+    t.string   "action"
+    t.text     "audited_changes"
+    t.integer  "version",         :default => 0
+    t.string   "comment"
+    t.string   "remote_address"
     t.datetime "created_at"
   end
 
-  add_index "action_logs", ["creator_id"], :name => "index_action_logs_on_creator_id"
-  add_index "action_logs", ["trackable_id"], :name => "index_action_logs_on_trackable_id"
-  add_index "action_logs", ["trackable_type"], :name => "index_action_logs_on_trackable_type"
+  add_index "audits", ["associated_id", "associated_type"], :name => "associated_index"
+  add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
+  add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
+  add_index "audits", ["user_id", "user_type"], :name => "user_index"
 
   create_table "emails", :force => true do |t|
     t.string   "state"
@@ -54,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20111117235151) do
   add_index "events", ["type"], :name => "index_events_on_type"
 
   create_table "postings", :force => true do |t|
-    t.string   "type",                                         :null => false
+    t.string   "type"
     t.integer  "event_id"
     t.integer  "user_id"
     t.integer  "transaction_id"
@@ -88,7 +96,7 @@ ActiveRecord::Schema.define(:version => 20111117235151) do
 
   create_table "users", :force => true do |t|
     t.integer  "vs"
-    t.string   "name",                                                        :null => false
+    t.string   "username",                                                    :null => false
     t.string   "email",                                 :default => "",       :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "",       :null => false
     t.string   "role",                                  :default => "member", :null => false
@@ -106,8 +114,8 @@ ActiveRecord::Schema.define(:version => 20111117235151) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
   add_index "users", ["vs"], :name => "index_users_on_vs", :unique => true
 
 end

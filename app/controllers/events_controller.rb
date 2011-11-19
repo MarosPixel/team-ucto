@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!
-  after_filter :action_tracking, only: [ :create, :update, :delete ]
   
   # GET /events
   # GET /events.json
@@ -86,12 +85,5 @@ class EventsController < ApplicationController
       format.json { head :ok }
     end
   end
-
-
-  private
-
-    def tracked_object
-      @event
-    end
 
 end

@@ -6,6 +6,5 @@ class Event < ActiveRecord::Base
   has_one  :event_posting
   has_many :participation_postings
   has_many :users, through: :participation_postings
-  has_many :logs, class_name: 'ActionLog', as: :trackable
 
 end

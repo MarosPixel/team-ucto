@@ -7,7 +7,8 @@ gem 'haml-rails'
 gem 'devise'
 gem 'cancan'
 gem 'simple_form'
-gem 'sass-rails',   '~> 3.1.4'
+gem 'acts_as_audited', '2.0.0'
+gem 'sass-rails', '~> 3.1.4'
 
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'
@@ -20,7 +21,7 @@ end
 
 group :development do
   gem 'sqlite3'
-  gem 'eventmachine', '1.0.0.beta.4.1' # livereload, potreba -pre verzia pre ruby >= 1.9
+  gem 'eventmachine', '1.0.0.beta.4.1' # guard-livereload, vyzaduje -pre verziu pre ruby >= 1.9
   gem 'guard-livereload'
 end
 

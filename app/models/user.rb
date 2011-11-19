@@ -6,19 +6,17 @@ class User < ActiveRecord::Base
   has_many :participation_postings
   has_many :events, through: :participation_postings
   has_many :created_events, class_name: 'Event', foreign_key: :creator_id
-  has_many :logs, class_name: 'ActionLog', as: :trackable
-  has_many :created_logs, class_name: 'ActionLog', foreign_key: :creator_id
   devise :database_authenticatable, :recoverable, :registerable, 
-         :rememberable, :trackable, :validatable # definovat vlastnu validaciu
+         :rememberable, :trackable, :validatable # TODO definovat vlastnu validaciu
+  acts_as_audited only: [:username, :email, :is_approved, :role]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :is_approved, :role
+  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :is_approved, :role
 
   # Validations
   validate :role, inclusion: ROLES
 
   after_create :set_vs
-  
 
   public
 
