@@ -15,7 +15,9 @@ class ParticipationController < ApplicationController
     @participation << Event.find(params[:eid]) if @participation.where(id: params[:eid]).first.nil?
 
     respond_to do |format|
-      format.html { redirect_to participation_url, notice: 'User was successfully logged on to event.' }
+      format.html { redirect_to participation_url }
+      format.js { @is_relation = true, @eid = params[:eid], @uid = params[:uid] }
+      # format.js { render nothing: true }
     end
   end
 
@@ -23,7 +25,9 @@ class ParticipationController < ApplicationController
     User.find(params[:uid]).events.delete(Event.find(params[:eid]))
 
     respond_to do |format|
-      format.html { redirect_to participation_url, notice: 'User was successfully logged out from event.'  }
+      format.html { redirect_to participation_url }
+      format.js { @is_relation = false, @eid = params[:eid], @uid = params[:uid] }
+      # format.js { render nothing: true }
     end
   end
 

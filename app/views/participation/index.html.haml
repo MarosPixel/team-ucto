@@ -7,10 +7,18 @@
       %th= event.name
   - @users.each do |user|
     %tr
-      %th= user.name
+      %th= user.username
       - @events.each do |event|
-        %td
+        - is_relation = event.users.where(id: user.id).first.nil?
+        %td.p11n.tcenter{id: ['p11n', event.id, user.id]}
+          = render partial: 'p11n', locals: { is_relation: is_relation, eid: event.id, uid: user.id }
+
+
+      -#
+        %td.tcenter
           - if event.users.where(id: user.id).first.nil?
-            = button_to '+', participation_path(eid: event.id, uid: user.id), method: :post
+            .p11n.do_add
+              = button_to '+', participation_path(eid: event.id, uid: user.id), method: :post, remote: true
           - else
-            = button_to '-', participation_path(eid: event.id, uid: user.id), method: :delete
+            .p11n.do_delete
+              = button_to '-', participation_path(eid: event.id, uid: user.id), method: :delete, remote: true

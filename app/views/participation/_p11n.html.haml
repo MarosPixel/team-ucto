@@ -1,0 +1,4 @@
+- if is_relation
+  = button_to '+', participation_path(eid: eid, uid: uid), method: :post#, remote: true
+- else
+  = button_to '-', participation_path(eid: eid, uid: uid), method: :delete#, remote: true

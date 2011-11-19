@@ -1,0 +1,7 @@
+$("#p11n_1_1").html("<%= escape_javascript(render partial: 'p11n', locals: { is_relation: @is_relation, eid: @eid, uid: @uid }) %>");
+
+// $('.p11n.do_add').bind('ajax:success', function(){
+//     alert('hegfsd');
+//     $(this).addClass('do_delete').removeClass('do_add');
+//     $(this).closest('input').val('-').append('<input name="_method" type="hidden" value="delete" />');
+// });

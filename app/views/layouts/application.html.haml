@@ -19,7 +19,7 @@
           = link_to_s 'Participation', participation_path, 'participation'
 
           .fright
-            %b= current_user.name
+            %b= current_user.username
             = link_to_s 'My profile', edit_user_registration_path, 'devise/registrations'
             = link_to 'Logout', destroy_user_session_path, method: :delete
           
