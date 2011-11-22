@@ -12,7 +12,7 @@ class ParticipationController < ApplicationController
 
   def add
     @participation = User.find(params[:uid]).events
-    @participation << Event.find(params[:eid]) if @participation.where(id: params[:eid]).first.nil?
+    @participation << Event.find(params[:eid])
 
     respond_to do |format|
       format.html { redirect_to participation_url }
