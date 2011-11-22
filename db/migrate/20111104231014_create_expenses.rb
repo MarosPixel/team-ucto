@@ -1,6 +1,6 @@
-class CreateEvents < ActiveRecord::Migration
+class CreateExpenses < ActiveRecord::Migration
   def change
-    create_table :events do |t|
+    create_table :expenses do |t|
       t.string   :type,        null: false
       t.string   :name
       t.datetime :start_at
@@ -14,6 +14,6 @@ class CreateEvents < ActiveRecord::Migration
       t.text     :description
     end
     
-    add_index :events, :type
+    add_index :expenses, :type
   end
 end

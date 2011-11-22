@@ -2,7 +2,7 @@
 
 one:
   type: 
-  event_id: 1
+  expense_id: 1
   user_id: 1
   transaction_id: 1
   price: 9.99
@@ -10,7 +10,7 @@ one:
 
 two:
   type: 
-  event_id: 1
+  expense_id: 1
   user_id: 1
   transaction_id: 1
   price: 9.99

@@ -1,0 +1,2 @@
+class Tournament < Expense
+end

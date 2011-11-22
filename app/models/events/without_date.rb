@@ -1,2 +1,0 @@
-class WithoutDate < Event
-end

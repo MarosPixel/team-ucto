@@ -3,7 +3,7 @@ class ParticipationController < ApplicationController
   
   def index
     @users  = User.all
-    @events = Event.all
+    @expenses = Expense.all
 
     respond_to do |format|
       format.html # index.html.haml
@@ -11,8 +11,8 @@ class ParticipationController < ApplicationController
   end
 
   def add
-    @participation = User.find(params[:uid]).events
-    @participation << Event.find(params[:eid])
+    @participation = User.find(params[:uid]).expenses
+    @participation << Expense.find(params[:eid])
 
     respond_to do |format|
       format.html { redirect_to participation_url }
@@ -22,7 +22,7 @@ class ParticipationController < ApplicationController
   end
 
   def delete
-    User.find(params[:uid]).events.delete(Event.find(params[:eid]))
+    User.find(params[:uid]).expenses.delete(Expense.find(params[:eid]))
 
     respond_to do |format|
       format.html { redirect_to participation_url }

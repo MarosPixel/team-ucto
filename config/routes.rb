@@ -1,12 +1,11 @@
 TeamUcto::Application.routes.draw do
   
-  root to: "home#index"
+  root to: 'home#index'
 
-  resources :events, except: :new
-  get '/events/new/:type' => 'events#new', constraints: { type: /tournament|training|without_date/ }, as: :new_event
-  # resources :tournaments
-  # resources :trainings
-  # resources :expenses
+  resources :expenses,                              type: 'expense',      only: :index
+  resources :trainings,      controller: :expenses, type: 'training'
+  resources :tournaments,    controller: :expenses, type: 'tournament'
+  resources :other_expenses, controller: :expenses, type: 'other_expense'
 
   resources :users, except: [ :new, :create ]
   devise_for :user, skip: [ :sessions ] do

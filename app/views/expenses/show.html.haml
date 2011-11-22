@@ -1,0 +1,45 @@
+%table
+  %tr
+    %th Id:
+    %td= @expense.id
+  %tr
+    %th Type:
+    %td= @expense.type
+  %tr
+    %th Name:
+    %td= @expense.name
+  %tr
+    %th Start at:
+    %td= @expense.start_at
+  %tr
+    %th End at:
+    %td= @expense.start_at
+  %tr
+    %th Total price:
+    %td= @expense.total_price
+  %tr
+    %th Team fee:
+    %td= @expense.team_fee
+  %tr
+    %th Player fee:
+    %td= @expense.player_fee
+  %tr
+    %th Creator:
+    %td= link_to @expense.creator.username, user_path(@expense.creator)
+  %tr
+    %th Created at:
+    %td= @expense.created_at
+  %tr
+    %th Updated_at
+    %td= @expense.updated_at
+  %tr
+    %th Locked at:
+    %td= @expense.locked_at
+  %tr
+    %th Description:
+    %td= @expense.description
+
+
+= link_to 'Edit', [:edit, @expense]
+\|
+= link_to 'Back', expenses_path

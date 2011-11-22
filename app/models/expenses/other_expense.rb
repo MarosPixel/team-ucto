@@ -1,0 +1,2 @@
+class OtherExpense < Expense
+end

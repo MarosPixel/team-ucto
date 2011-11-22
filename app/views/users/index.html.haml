@@ -1,21 +1,25 @@
 %h1 Users
 
-= link_to "All Users", action: "index"
+= link_to "All Users", action: :index
 |
-= link_to "Users awaiting approval", action: "index", approved: "false"
+= link_to "Users awaiting approval", action: :index, approved: "false"
 
 %table
   %tr
+    %th Id
+    %th VS
     %th Approved
     %th Name
     %th Email
-    %th VS
+    %th Role
     %th{colspan: 2}
   - @users.each do |user|
     %tr
+      %td= user.id
+      %td= user.vs
       %td= user.is_approved
       %td= user.username
       %td= user.email
-      %td= user.vs
+      %td= user.role
       %td= link_to "Show", user_path(user)
       %td= link_to "Edit", edit_user_path(user)

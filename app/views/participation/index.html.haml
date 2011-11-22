@@ -3,22 +3,23 @@
 %table.center
   %tr
     %th
-    - @events.each do |event|
-      %th= event.name
+    - @expenses.each do |expense|
+      %th.p11n-date
+        %div= expense.id
   - @users.each do |user|
     %tr
       %th= user.username
-      - @events.each do |event|
-        - is_relation = event.users.where(id: user.id).first.nil?
-        %td.p11n.tcenter{id: ['p11n', event.id, user.id]}
-          = render partial: 'p11n', locals: { is_relation: is_relation, eid: event.id, uid: user.id }
+      - @expenses.each do |expense|
+        - is_relation = expense.users.where(id: user.id).first.nil?
+        %td.p11n.tcenter{id: ['p11n', expense.id, user.id]}
+          = render partial: 'p11n', locals: { is_relation: is_relation, eid: expense.id, uid: user.id }
 
 
       -#
         %td.tcenter
-          - if event.users.where(id: user.id).first.nil?
+          - if expense.users.where(id: user.id).first.nil?
             .p11n.do_add
-              = button_to '+', participation_path(eid: event.id, uid: user.id), method: :post, remote: true
+              = button_to '+', participation_path(eid: expense.id, uid: user.id), method: :post, remote: true
           - else
             .p11n.do_delete
-              = button_to '-', participation_path(eid: event.id, uid: user.id), method: :delete, remote: true
+              = button_to '-', participation_path(eid: expense.id, uid: user.id), method: :delete, remote: true

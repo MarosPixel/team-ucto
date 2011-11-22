@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20111119011243) do
 
   add_index "emails", ["state"], :name => "index_emails_on_state"
 
-  create_table "events", :force => true do |t|
+  create_table "expenses", :force => true do |t|
     t.string   "type",                                      :null => false
     t.string   "name"
     t.datetime "start_at"
@@ -59,11 +59,11 @@ ActiveRecord::Schema.define(:version => 20111119011243) do
     t.text     "description"
   end
 
-  add_index "events", ["type"], :name => "index_events_on_type"
+  add_index "expenses", ["type"], :name => "index_expenses_on_type"
 
   create_table "postings", :force => true do |t|
     t.string   "type"
-    t.integer  "event_id"
+    t.integer  "expense_id"
     t.integer  "user_id"
     t.integer  "transaction_id"
     t.decimal  "price",          :precision => 8, :scale => 2
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20111119011243) do
     t.datetime "updated_at"
   end
 
-  add_index "postings", ["event_id"], :name => "index_postings_on_event_id"
+  add_index "postings", ["expense_id"], :name => "index_postings_on_expense_id"
   add_index "postings", ["transaction_id"], :name => "index_postings_on_transaction_id"
   add_index "postings", ["type"], :name => "index_postings_on_type"
   add_index "postings", ["user_id"], :name => "index_postings_on_user_id"

@@ -1,7 +1,6 @@
-= simple_form_for(@event) do |f|
+= simple_form_for(@expense) do |f|
   = f.error_notification
-  = f.input :type, as: :hidden
-  
+    
   .inputs
     = f.input :name
     = f.input :start_at
