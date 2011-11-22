@@ -45,13 +45,8 @@ class User < ActiveRecord::Base
   private
 
     def set_vs
-      a = self.id % 11
-      if a == 10
-        self.vs = "#{self.id}01"
-      else
-        self.vs = "#{self.id}#{a}0"
-      end
-      self.save
+      self.vs = id.to_s + ("%02d" % (id % 11)).reverse
+      save
     end
 
 end
