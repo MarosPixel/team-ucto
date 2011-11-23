@@ -1,0 +1,44 @@
+$label-width: 170px
+$default-margin: 10px
+
+.simple_form
+  xbackground-color: #dedede
+  padding: $default-margin * 2
+  margin-right: $default-margin
+  xfloat: left
+  xborder-radius: 3px
+  xborder: 1px solid #ccc
+
+  label
+    float: left
+    width: $label-width
+    text-align: right
+    margin: 2px $default-margin
+
+  div.input
+    margin-bottom: $default-margin
+
+  div.boolean, 
+  input[type='submit']
+    margin-left: $label-width + 20px
+
+  div.boolean label, 
+  label.collection_radio
+    float: none
+    margin: 0
+
+  label.collection_radio
+    margin-right: $default-margin
+    margin-left: 2px
+
+  .hint,
+  .error
+    clear: left
+    margin-left: $label-width + 20px
+    font-size: 12px
+    display: block
+    color: #D00
+
+  .hint
+    color: #555
+    font-style: italic
