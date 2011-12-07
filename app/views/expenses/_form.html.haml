@@ -3,11 +3,9 @@
     
   .inputs
     = f.input :name
-    = f.input :start_at
+    = f.input :start_at, start_year: Date.today.year, end_year: Date.today.year + 1
     = f.input :end_at
-    = f.input :total_price
-    = f.input :team_fee
-    = f.input :player_fee
+    = render partial: "#{@expense.type.underscore}_form", locals: { f: f }
     = f.input :locked_at
     = f.input :description
 

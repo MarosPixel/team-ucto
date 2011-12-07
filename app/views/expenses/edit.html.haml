@@ -1,4 +1,6 @@
-%h1 Editing expense
+%h1
+  %span.cseda Editing
+  = @expense.type.underscore.humanize
 
 = render 'form'
 

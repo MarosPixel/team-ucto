@@ -22,6 +22,7 @@ input[type=submit]
   padding: 4px 8px
   border-radius: 3px
   color: #888
+  cursor: pointer
   &:hover
     color: #777
     border-color: #aaa
@@ -45,11 +46,10 @@ input[type=submit]
     border-bottom: 1px solid $bg-dark
     margin-left: 1px
   
-  a:hover,
-  a.selected
+  a:hover
     background-color: #444
   a.selected
-    border-color: #cdcdcd
+    color: #fff
 
 .p11n-date
   div
@@ -57,6 +57,10 @@ input[type=submit]
 
 #content
   padding: 10px
+
+
+.cseda 
+  color: #888
 
 .tleft
   text-align: left
@@ -74,7 +78,7 @@ input[type=submit]
 
 
 #beta
-  // @include rotate(45deg)
+  //@include rotate(45deg)
   background-color: #FF4411
   color: #FFFFFF
   font-family: helvetica
@@ -82,7 +86,7 @@ input[type=submit]
   font-weight: bold
   border-radius: 5px
   padding: 5px 12px
-  position: absolute
+  position: fixed
   right: -64px
   top: 2px
   @include transition(right .5s)

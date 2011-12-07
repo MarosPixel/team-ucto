@@ -15,10 +15,8 @@ TeamUcto::Application.routes.draw do
     delete '/logout' => 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  scope '/participation' do
-    get    '' => 'participation#index', as: :participation
-    post   '' => 'participation#add'
-    delete '' => 'participation#delete'
-  end
+  get    '/participations'          => 'participation#index', as: :participations
+  post   '/participation/:eid/:uid' => 'participation#add',   as: :participation
+  delete '/participation/:eid/:uid' => 'participation#delete'
 
 end

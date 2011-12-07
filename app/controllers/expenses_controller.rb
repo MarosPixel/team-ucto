@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :set_expense, only: [ :show, :edit, :update, :destroy ]
+  authorize_resource
   
   # GET /expenses
   # GET /expenses.json
@@ -15,8 +16,6 @@ class ExpensesController < ApplicationController
   # GET /expenses/1
   # GET /expenses/1.json
   def show
-    @expense = get_class.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @expense }
@@ -36,7 +35,6 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/1/edit
   def edit
-    @expense = get_class.find(params[:id])
   end
 
   # POST /expenses
@@ -59,8 +57,6 @@ class ExpensesController < ApplicationController
   # PUT /expenses/1
   # PUT /expenses/1.json
   def update
-    @expense = get_class.find(params[:id])
-
     respond_to do |format|
       if @expense.update_attributes(params[get_type])
         format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
@@ -75,7 +71,6 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1
   # DELETE /expenses/1.json
   def destroy
-    @expense = get_class.find(params[:id])
     @expense.destroy
 
     respond_to do |format|
@@ -94,5 +89,8 @@ class ExpensesController < ApplicationController
       get_type.classify.constantize
     end
 
+    def set_expense
+      @expense = get_class.find(params[:id])
+    end
 
 end

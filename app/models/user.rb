@@ -42,6 +42,14 @@ class User < ActiveRecord::Base
       recoverable
     end
 
+    def admin?
+      role == 'admin'
+    end
+
+    def super_admin?
+      role == 'super_admin'
+    end
+
   private
 
     def set_vs
