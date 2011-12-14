@@ -10,16 +10,15 @@
     %tr
       %th= user.username
       - @expenses.each do |expense|
-        - is_relation = expense.users.find_by_id(user.id).nil?
-        %td.p11n.tcenter{id: ['p11n', expense.id, user.id]}
-          = render partial: 'p11n', locals: { is_relation: is_relation, eid: expense.id, uid: user.id }
+        -#- is_relation = expense.users.find_by_id(user.id).nil?
+        -#%td.p11n.tcenter{id: ['p11n', expense.id, user.id]}
+          -#= render partial: 'p11n', locals: { is_relation: is_relation, eid: expense.id, uid: user.id }
 
 
-      -#
         %td.tcenter
           - if expense.users.find_by_id(user.id).nil?
             .p11n.do_add
-              = button_to '+', participation_path(expense.id, user.id), method: :post, remote: true
+              = button_to '+', participation_path(expense.id, user.id), method: :post,   remote: true
           - else
             .p11n.do_delete
               = button_to '-', participation_path(expense.id, user.id), method: :delete, remote: true

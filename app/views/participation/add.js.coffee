@@ -1,1 +1,1 @@
-$("#p11n_<%= @eid %>_<%= @uid %>").html("<%= escape_javascript(render partial: 'p11n', locals: { is_relation: false, eid: @eid, uid: @uid }) %>")
+// $("#p11n_<%= @eid %>_<%= @uid %>").html("<%= escape_javascript(render partial: 'p11n', locals: { is_relation: false, eid: @eid, uid: @uid }) %>")

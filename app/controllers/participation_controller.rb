@@ -1,5 +1,5 @@
 class ParticipationController < ApplicationController
-  authorize_resource
+  #authorize_resource
   
   # GET /participation
   # GET /participation.json
