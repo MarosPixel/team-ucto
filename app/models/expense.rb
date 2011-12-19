@@ -7,4 +7,8 @@ class Expense < ActiveRecord::Base
   has_many :participation_postings
   has_many :users, through: :participation_postings, uniq: true
 
+  def locked?
+    locked_at < Time.now
+  end
+
 end

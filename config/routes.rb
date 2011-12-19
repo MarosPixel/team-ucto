@@ -19,4 +19,6 @@ TeamUcto::Application.routes.draw do
   post   '/participation/:eid/:uid' => 'participation#add',   as: :participation
   delete '/participation/:eid/:uid' => 'participation#delete'
 
+  get 'audits/index', as: :audits
+
 end

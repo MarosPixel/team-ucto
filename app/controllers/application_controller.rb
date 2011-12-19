@@ -1,12 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :authenticate_user!
 
   rescue_from CanCan::AccessDenied do |exception|
-    if user_signed_in?
-      redirect_to root_url, alert: 'Access denied.'
-    else
-      redirect_to new_user_session_url, alert: 'Access denied.'
-    end
+    redirect_to root_url, alert: 'Access denied.'
   end
 
 end

@@ -10,15 +10,22 @@
 %table
   %tr
     %th Id
+    %th Locked
     %th Type
     %th Name
-    %th{colspan: 3}
+    %th User
+    %th
 
   - @expenses.each do |expense|
     %tr
       %td= expense.id
+      %td= expense.locked?
       %td= expense.type
       %td= expense.name
-      %td= link_to 'Show', expense
-      %td= link_to 'Edit', [:edit, expense]
-      %td= link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete
+      %td= expense.creator.username
+      %td
+        = link_to 'Show', expense
+        - if can? :update, expense
+          = link_to 'Edit', [:edit, expense]
+        - if can? :destroy, expense
+          = link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete

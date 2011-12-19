@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :set_user, except: :index
+  authorize_resource
   
    
   # GET /users

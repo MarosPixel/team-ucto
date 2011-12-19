@@ -1,0 +1,8 @@
+%h1 Audits
+
+-# TODO upravit
+
+%ol
+  - @audits.each do |audit|
+    %li
+      %pre= audit.to_yaml

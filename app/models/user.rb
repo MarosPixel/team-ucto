@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :created_expenses, class_name: 'Expense', foreign_key: :creator_id
   devise :database_authenticatable, :recoverable, :registerable, 
          :rememberable, :trackable, :validatable # TODO definovat vlastnu validaciu
-  # acts_as_audited only: [:username, :email, :is_approved, :role]
+  acts_as_audited only: [:username, :email, :is_approved, :role]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :is_approved, :role
@@ -35,19 +35,19 @@ class User < ActiveRecord::Base
     def self.send_reset_password_instructions(attributes={})
       recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
       if !recoverable.is_approved?
-        recoverable.errors[:base] << I18n.t("devise.failure.not_approved")
+        recoverable.errors[:base] << I18n.t('devise.failure.not_approved')
       elsif recoverable.persisted?
         recoverable.send_reset_password_instructions
       end
       recoverable
     end
 
-    def admin?
-      role == 'admin'
-    end
-
     def super_admin?
       role == 'super_admin'
+    end
+
+    def admin?
+      role == 'admin'
     end
 
   private

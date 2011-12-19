@@ -1,11 +1,12 @@
 class ParticipationController < ApplicationController
-  #authorize_resource
-  
+   
   # GET /participation
   # GET /participation.json
   def index
     @users  = User.all
     @expenses = Expense.all
+
+    authorize! :index, Participation
 
     respond_to do |format|
       format.html # index.html.haml
@@ -15,8 +16,11 @@ class ParticipationController < ApplicationController
   # POST /participation/1/2
   # POST /participation/1/2.json
   def add
-    get_user_expenses << get_expense
+    @participation = Participation.new(expense_id: params[:eid], user_id: params[:uid])
+    authorize! :add, @participation
 
+    User.find(params[:uid]).expenses  << Expense.find(params[:eid])
+    
     respond_to do |format|
       format.html { redirect_to participation_url }
       #format.js { @is_relation = false, @eid = params[:eid], @uid = params[:uid] }
@@ -27,7 +31,10 @@ class ParticipationController < ApplicationController
   # DELETE /participation/1/2
   # DELETE /participation/1/2.json
   def delete
-    get_user_expenses.delete(get_expense)
+    @participation = Participation.where(expense_id: params[:eid], user_id: params[:uid]).first
+    authorize! :delete, @participation
+
+    User.find(params[:uid]).expenses .delete(Expense.find(params[:eid]))
 
     respond_to do |format|
       format.html { redirect_to participation_url }
@@ -35,15 +42,5 @@ class ParticipationController < ApplicationController
       format.js { render nothing: true }
     end
   end
-
-  private
-
-    def get_user_expenses
-      User.find(params[:uid]).expenses 
-    end
-
-    def get_expense
-      Expense.find(params[:eid])
-    end
 
 end
