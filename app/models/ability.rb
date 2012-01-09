@@ -10,10 +10,10 @@ class Ability
     else
       can :read, :home
 
-      #can :index, Participation
-      # can [:add, :delete], Participation do |partic|
-      #   (partic.try(:user) == user and not partic.try(:expense).locked?) or user.admin?
-      # end
+      can :index, ParticipationPosting
+      can [:add, :delete], ParticipationPosting do |partic|
+        (partic.try(:user) == user and not partic.try(:expense).locked?) or user.admin?
+      end
 
       can :read, Expense
       can [:create, :update], Expense do |expense|
