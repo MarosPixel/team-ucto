@@ -1,19 +1,37 @@
 %h1 Participation
 
-%table.center
+%table.participation
+  // 1. riadok po mesiacoch (January 2012) %B %Y
   %tr
-    %th
-    - @expenses.each do |expense|
-      %th.p11n-date
-        %div= expense.id
+    %td
+    - @table_groups.each do |table_group|
+      %td{:class => "th1 #{table_group[2]}", colspan: table_group[0].length}= table_group[1]
+
+  // 2. riadok po eventoch (Mon 25) %B %Y
+  %tr
+    %td
+    - @table_groups.each do |table_group|
+      - table_group[0].each do |expense|
+        %td{:class => "th2 #{table_group[2]}"}= expense.start_at.strftime('%a %e')
+
+  // 3. riadok nazov eventu
+  %tr
+    %td
+    - @table_groups.each do |table_group|
+      - table_group[0].each do |expense|
+        %td{:class => "th3"}= link_to expense.name, expense
+
+  // telo tabulky
   - @users.each do |user|
     %tr
-      %th= user.username
+      %td= user.username
       - @expenses.each do |expense|
-        %td.tcenter
+        %td
           - if expense.users.find_by_id(user.id).nil?
             .p11n.do_add
               = button_to '+', participation_path(expense.id, user.id), method: :post, remote: true
           - else
             .p11n.do_delete
               = button_to '-', participation_path(expense.id, user.id), method: :delete, remote: true
+%br
+.pagination= will_paginate @expenses

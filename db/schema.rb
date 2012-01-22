@@ -45,13 +45,13 @@ ActiveRecord::Schema.define(:version => 20111119011243) do
   add_index "emails", ["state"], :name => "index_emails_on_state"
 
   create_table "expenses", :force => true do |t|
-    t.string   "type",                                      :null => false
+    t.string   "type",        :null => false
     t.string   "name"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.decimal  "total_price", :precision => 8, :scale => 2
-    t.decimal  "team_fee",    :precision => 8, :scale => 2
-    t.decimal  "player_fee",  :precision => 8, :scale => 2
+    t.date     "start_at"
+    t.date     "end_at"
+    t.decimal  "total_price"
+    t.decimal  "team_fee"
+    t.decimal  "player_fee"
     t.integer  "creator_id"
     t.datetime "locked_at"
     t.datetime "created_at"

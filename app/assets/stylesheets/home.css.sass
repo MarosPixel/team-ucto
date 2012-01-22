@@ -14,25 +14,68 @@ $bg-dark: #333
   -ms-transition: $value
   -moz-transition: $value
   -webkit-transition: $value
+@mixin linear-gradient($scolor, $ecolor)
+  background-image: linear-gradient(center top, $scolor, $ecolor)
+  background-image: -o-linear-gradient(center top, $scolor, $ecolor)
+  background-image: -ms-linear-gradient(center top, $scolor, $ecolor)
+  background-image: -moz-linear-gradient(center top, $scolor, $ecolor)
+  background-image: -webkit-linear-gradient(center top, $scolor, $ecolor)
 
-.button,
-input[type=submit]
-  border: 1px solid #ccc
-  background-color: #ddd
-  padding: 4px 8px
-  border-radius: 3px
-  color: #888
+.button
+  border: 1px solid #dcdcdc
+  background-color: #f5f5f5
+  @include linear-gradient(#F5F5F5, #F1F1F1)
+  padding: 6px 12px
+  border-radius: 2px
+  color: #444
   cursor: pointer
+  font-weight: bold
+  font-size: 11px
+  &:active
+    @include linear-gradient(#F4F4F4, #E0E0E0)
+    box-shadow: 0 1px 2px rgba(0,0,0,.1) inset    
   &:hover
-    color: #777
-    border-color: #aaa
-    box-shadow: 0 0 7px #aaa
+    border-color: #C6C6C6
+    @include linear-gradient(#F8F8F8, #F1F1F1)
+    box-shadow: 0 1px 2px rgba(0,0,0,.1)
+  &.blue
+    color: #fff
+    background-color: #4D90FE
+    @include linear-gradient(#4D90FE, #4787ED)
+    border: 1px solid #3079ED
+    text-shadow: 0 1px 2px rgba(0,0,0,.2)
+    &:hover
+      @include linear-gradient(#4D90FE, #357AE8)
+      border-color: #2F5BB7
+
+input[type=email],
+input[type=password],
+input[type=text],
+input[type=number],
+select,
+textarea
+  border: 1px solid #dcdcdc
+  padding: 4px
+  &:hover
+    border-color: #C6C6C6 
+    box-shadow: 0 0 2px rgba(0,0,0,.1) inset
+  &:focus
+    border-color: #4D90FE
+    box-shadow: 0 0 2px rgba(0,0,0,.1) inset
+
+select
+  padding: 1px
+textarea
+  padding: 2px
+
 
 #top-menu
   border-bottom: 2px solid $border-color
   color: #cdcdcd
-  background-color: $bg-dark
+  background-color: transparent
   padding: 1px 7px 0
+  width: 960px
+  margin: 0 auto
 
   a,
   b
@@ -45,6 +88,8 @@ input[type=submit]
     xborder-radius: 3px 3px 0 0
     border-bottom: 1px solid $bg-dark
     margin-left: 1px
+  b
+    color: #f0f0f0
   
   a:hover
     background-color: #444
@@ -55,11 +100,8 @@ input[type=submit]
   div
     //@include rotate(-90deg)
 
-#content
-  padding: 10px
 
-
-.cseda 
+.cseda
   color: #888
 
 .tleft
@@ -73,23 +115,5 @@ input[type=submit]
   float: left
 .fright
   float: right
-.clear
+.clearfix
   clear: both
-
-
-#beta
-  //@include rotate(45deg)
-  background-color: #FF4411
-  color: #FFFFFF
-  font-family: helvetica
-  font-size: 130%
-  font-weight: bold
-  border-radius: 5px
-  padding: 5px 12px
-  position: fixed
-  right: -64px
-  top: 2px
-  @include transition(right .5s)
-  &:hover
-    right: -4px
-    @include transition(right 1.5s)

@@ -1,2 +1,4 @@
-= f.input :team_fee
-= f.input :player_fee
+= f.input :start_at#, as: 'string', input_html: { class: 'datepicker_locked_at' }
+= f.input :end_at#, as: 'string', input_html: { class: 'datepicker_locked_at' }
+= f.input :team_fee, placeholder: 0
+= f.input :player_fee, placeholder: 0

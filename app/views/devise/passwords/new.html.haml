@@ -1,12 +1,16 @@
-%h2 Forgot your password?
+#password_recovery-wrap.devise
 
-= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = f.error_notification
+  %h2 Forgot your password?
 
-  .inputs
-    = f.input :email, required: true
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    = f.error_notification
 
-  .actions
-    = f.button :submit, "Send me reset password instructions"
+    .inputs.fleft
+      = f.input :email, required: true, placeholder: 'Email'
 
-= render partial: "devise/shared/links"
+    .actions.fleft
+      = f.button :submit, "Send me reset password instructions", class: 'blue'
+
+    .clearfix
+
+  = render partial: "devise/shared/links"

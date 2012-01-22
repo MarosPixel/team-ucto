@@ -3,7 +3,7 @@ $default-margin: 10px
 
 .simple_form
   xbackground-color: #dedede
-  padding: $default-margin * 2
+  xpadding: $default-margin * 2
   margin-right: $default-margin
   xfloat: left
   xborder-radius: 3px
@@ -42,3 +42,16 @@ $default-margin: 10px
   .hint
     color: #555
     font-style: italic
+
+
+.devise
+  .simple_form
+    div.boolean, 
+    input[type='submit']
+      margin-left: 0
+    label.email,
+    label.password,
+    label.string
+      display: none
+    
+    

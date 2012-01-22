@@ -4,7 +4,8 @@ class ParticipationController < ApplicationController
   # GET /participation.json
   def index
     @users  = User.all
-    @expenses = Expense.all
+    @expenses = Expense.paginate(page: params[:page], per_page: 5, order: 'start_at DESC')
+    @table_groups = table_groups(@expenses)
 
     authorize! :index, ParticipationPosting
 
@@ -24,7 +25,6 @@ class ParticipationController < ApplicationController
     
     respond_to do |format|
       format.html { redirect_to participations_url }
-      #format.js { @is_relation = false, @eid = params[:eid], @uid = params[:uid] }
       format.js { render nothing: true }
     end
   end
@@ -39,9 +39,32 @@ class ParticipationController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to participations_url }
-      #format.js { @is_relation = true, @eid = params[:eid], @uid = params[:uid] }
       format.js { render nothing: true }
     end
   end
+
+  private
+
+    def table_groups(expenses)
+      previous_month = ''
+      group_id = -1
+      groups = []
+
+      expenses.each do |expense|
+
+        if previous_month != expense.start_at.mon()
+          previous_month = expense.start_at.mon()
+          group_id += 1
+          groups[group_id] = []
+          groups[group_id][0] = [] # sub groups
+          groups[group_id][1] = expense.start_at.strftime('%B %Y') # title (January 2012)
+          groups[group_id][2] = 'head_color_' + expense.start_at.mon().to_s # color_class
+        end
+        groups[group_id][0] << expense
+
+      end  
+
+      groups
+    end
 
 end

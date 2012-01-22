@@ -1,12 +1,17 @@
-%h2 Sign in
+#sign_in-wrap.devise
 
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .inputs
-    = f.input :email, required: true, autofocus: true
-    = f.input :password, required: true
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+  %h2 Sign in
 
-  .actions
-    = f.button :submit, "Sign in"
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .inputs
+      = f.input :email, required: true, placeholder: 'Email'
+      = f.input :password, required: true, placeholder: 'Password'
 
-= render partial: "devise/shared/links"
+    .actions
+      = f.button :submit, "Sign in", class: 'blue'
+      = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+    .clearfix
+    %br
+
+  = render partial: "devise/shared/links"

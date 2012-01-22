@@ -126,6 +126,7 @@ GEM
     tzinfo (0.3.31)
     warden (1.1.0)
       rack (>= 1.0)
+    will_paginate (3.0.2)
 
 PLATFORMS
   x86-mingw32
@@ -144,3 +145,4 @@ DEPENDENCIES
   simple_form
   sqlite3
   turn
+  will_paginate (~> 3.0)

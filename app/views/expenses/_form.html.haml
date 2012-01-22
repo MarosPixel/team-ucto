@@ -3,11 +3,9 @@
     
   .inputs
     = f.input :name
-    = f.input :start_at, start_year: Date.today.year, end_year: Date.today.year + 1
-    = f.input :end_at
     = render partial: "#{@expense.type.underscore}_form", locals: { f: f }
-    = f.input :locked_at
-    = f.input :description
+    = f.input :locked_at#, as: 'string', input_html: { class: 'datepicker_locked_at' }, placeholder: '1.1.2030', hint: 'Dátum od ktorého je prihlasovanie na akciu uzamknuté.'
+    = f.input :description, input_html: { cols: 38, rows: 8 }
 
   .actions
-    = f.button :submit
+    = f.button :submit, class: 'blue'

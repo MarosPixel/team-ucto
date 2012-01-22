@@ -225,3 +225,8 @@ sk:
 
             full_messages:
                format: "%{attribute} %{message}"
+
+    will_paginate:
+        previous_label: "&laquo; Previous"
+        next_label: "Next &raquo;"
+        page_gap: "&hellip;"

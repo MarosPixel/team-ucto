@@ -1,4 +1,65 @@
 // Place all the styles related to the participation controller here.
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
-   
+
+$th-width: 76px
+
+table.participation
+  border-collapse: collapse
+  font-family: "Lucida Grande", Verdana, Arial, sans-serif
+  font-size: 12px !important
+
+  .th1,
+  .th2,
+  .th3
+    border-left: 1px dotted #ccc
+    border-right: 1px dotted #ccc
+    padding: 3px 6px
+
+  .th1,
+  .th2
+    color: #fff
+    background-color: #3385E4
+
+
+  .th2, 
+  .th3
+    width: $th-width
+
+  .th1
+    text-transform: uppercase
+
+  .th3
+    vertical-align: top
+
+  .th3 a
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+
+  .p11n
+    input 
+      width: 22px
+      height: 20px
+      border: none
+      margin: 0 auto
+      display: block
+      text-indent: -9999px
+      background-color: transparent
+      cursor: pointer
+
+    &:hover 
+      xbackground-color: #eee
+      box-shadow: none
+
+  .do_add
+    background-color: #FFCCCA
+    border-color: #FFCCCA
+     
+  .do_delete
+    background-color: #D1F3D1
+    border-color: #D1F3D1
+    input
+      background: url(checks/checks.png) -44px 0 no-repeat transparent
+
+    

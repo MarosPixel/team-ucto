@@ -1,2 +1,3 @@
-= f.input :total_price
-= f.input :player_fee
+= f.input :start_at, label: 'Date'#, as: 'string', input_html: { class: 'datepicker_locked_at' }
+= f.input :player_fee, placeholder: 2, hint: 'Suma ktorú musí zaplatiť hráč ( účasť na tréningu )'
+= f.input :total_price, placeholder: 10, hint: 'Suma ktorú platí team ( prenájom haly, ihriska )'

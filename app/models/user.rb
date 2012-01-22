@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable # TODO definovat vlastnu validaciu
   acts_as_audited only: [:username, :email, :is_approved, :role]
 
-  # Setup accessible (or protected) attributes for your model
+  # Setup accessible (or protected) attributes for my model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :is_approved, :role
 
   # Validations

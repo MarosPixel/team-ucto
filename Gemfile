@@ -7,8 +7,9 @@ gem 'haml-rails'
 gem 'devise'
 gem 'cancan'
 gem 'simple_form'
-gem 'acts_as_audited', '2.0.0'
 gem 'sass-rails', '~> 3.1.4'
+gem 'acts_as_audited', '2.0.0'
+gem 'will_paginate', '~> 3.0'
 
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'

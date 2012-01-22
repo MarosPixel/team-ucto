@@ -18,12 +18,10 @@ pre
   font-size: 11px
 
 a
-  color: #000
-  &:visited
-    color: #666
+  color: #4183C4
+  text-decoration: none
   &:hover
-    color: #fff
-    background-color: #000
+    text-decoration: underline
 
 div
   &.field, &.actions
@@ -59,9 +57,52 @@ div
     font-size: 12px
     list-style: square
 
-.tleft
-  text-align: left
-.tright
-  text-align: right
-.tcenter
-  text-align: center
+
+#header-wrap
+  #header
+    height: 32px
+    background: url(header-bg.png) 0 0 repeat #404040
+    #logo
+      height: 32px
+      width: 350px
+      background: url(header-logo.png) 0 0 no-repeat transparent
+
+#header-wrap.not_logged
+  #header
+    height: 150px
+    #logo
+      height: 150px
+      width: 960px
+      margin: 0 auto
+      background: url(header-logo-big.png) -50px 0 no-repeat transparent
+
+
+
+#content
+  width: 960px
+  margin: 0 auto
+  padding: 10px
+
+#sign_in-wrap
+  .simple_form
+    .button
+      float: left
+      xmargin-left: 0px
+    div.input.boolean
+      float: left
+      line-height: 32px
+      margin-left: 1em
+
+#password_recovery-wrap
+  .inputs
+    margin-right: 10px
+    margin-top: 2px
+
+#footer-wrap
+  #footer
+    width: 960px
+    margin: 0 auto
+    padding: 5px
+    margin-top: 30px
+    border-top: 1px solid #cdcdcd
+    color: #aaa

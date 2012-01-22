@@ -1,15 +1,17 @@
-%h2 Sign up
+#sing_up-wrap.devise
 
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.error_notification
+  %h2 Sign up
 
-  .inputs
-    = f.input :username,  required: true, autofocus: true
-    = f.input :email, required: true
-    = f.input :password, required: true
-    = f.input :password_confirmation, required: true
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = f.error_notification
 
-  .actions
-    = f.button :submit, "Sign up"
+    .inputs
+      = f.input :username, required: true, placeholder: 'Username'
+      = f.input :email, required: true, placeholder: 'Email'
+      = f.input :password, required: true, placeholder: 'Password'
+      = f.input :password_confirmation, required: true, placeholder: 'Password confirmation'
 
-= render partial: "devise/shared/links"
+    .actions
+      = f.button :submit, "Sign up", class: 'blue'
+
+  = render partial: "devise/shared/links"
