@@ -11,13 +11,13 @@ class Ability
       can :read, :home
 
       can :index, ParticipationPosting
-      can [:add, :delete], ParticipationPosting do |partic|
+      can :change, ParticipationPosting do |partic|
         (partic.try(:user) == user and not partic.try(:expense).locked?) or user.admin?
       end
 
       can :read, Expense
       can [:create, :update], Expense do |expense|
-        (expense.try(:creator) == user and not expense.locked?) or user.admin?
+        user.admin?
       end
 
     end

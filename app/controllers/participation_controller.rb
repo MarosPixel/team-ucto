@@ -3,8 +3,9 @@ class ParticipationController < ApplicationController
   # GET /participation
   # GET /participation.json
   def index
+
     @users  = User.all
-    @expenses = Expense.paginate(page: params[:page], per_page: 5, order: 'start_at DESC')
+    @expenses = Expense.paginate(page: params[:page], per_page: 9, order: 'start_at DESC')
     @table_groups = table_groups(@expenses)
 
     authorize! :index, ParticipationPosting
@@ -18,14 +19,21 @@ class ParticipationController < ApplicationController
   # POST /participation/1/2.json
   def add
     @participation = ParticipationPosting.new(expense_id: params[:eid], user_id: params[:uid])
-    # TODO try catch - Pristup zamietnuty
-    authorize! :add, @participation
-
-    User.find(params[:uid]).expenses  << Expense.find(params[:eid])
     
-    respond_to do |format|
-      format.html { redirect_to participations_url }
-      format.js { render nothing: true }
+    begin
+      authorize! :add, @participation
+
+      User.find(params[:uid]).expenses  << Expense.find(params[:eid])
+      
+      respond_to do |format|
+        format.html { redirect_to participations_url }
+        format.js { render nothing: true }
+      end
+
+    rescue
+      respond_to do |format|
+        format.js { head :bad_request }
+      end
     end
   end
 
@@ -33,13 +41,21 @@ class ParticipationController < ApplicationController
   # DELETE /participation/1/2.json
   def delete
     @participation = ParticipationPosting.where(expense_id: params[:eid], user_id: params[:uid]).first
-    authorize! :delete, @participation
 
-    User.find(params[:uid]).expenses.delete(Expense.find(params[:eid]))
+    begin
+      authorize! :delete, @participation
 
-    respond_to do |format|
-      format.html { redirect_to participations_url }
-      format.js { render nothing: true }
+      User.find(params[:uid]).expenses.delete(Expense.find(params[:eid]))
+
+      respond_to do |format|
+        format.html { redirect_to participations_url }
+        format.js { render nothing: true }
+      end
+
+    rescue
+      respond_to do |format|
+        format.js { head :bad_request }
+      end
     end
   end
 

@@ -19,7 +19,7 @@ sk:
   devise:
     failure:
       already_authenticated: 'Už ste prihláseny.'
-      unauthenticated: 'Musíte sa zaregistrovať alebo odhlásiť, potom možete pokračovať.'
+      unauthenticated: ''#'Musíte sa zaregistrovať alebo odhlásiť, potom možete pokračovať.'
       unconfirmed: 'Musíte potvrdiť svoj účet, potom možete pokračovať.'
       locked: 'Váš účet je  uzamknutý.'
       invalid: 'Nesprávny email alebo heslo.'
@@ -28,8 +28,8 @@ sk:
       inactive: 'Váš účet ešte nebol aktivovaný.'
       not_approved: 'Váš účet ešte nebol aktivovaný administrátorom.'
     sessions:
-      signed_in: 'Prihlásenie úspešné.'
-      signed_out: 'Odhlásenie úspešné.'
+      signed_in: ''#'Prihlásenie úspešné.'
+      signed_out: ''#'Odhlásenie úspešné.'
     passwords:
       send_instructions: 'O niekoľko minút obdržíte email s inštrukciami ako nastaviť nové heslo.'
       send_paranoid_instructions: 'Ak sa váš email nachádza v našej databáze, obdržíte odkaz na obnovu hesla na svoj email.'

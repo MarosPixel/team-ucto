@@ -28,38 +28,83 @@ table.participation
 
   .th1
     text-transform: uppercase
+  
+  .th2
+    font-size: 11px
+    padding: 3px 5px
 
   .th3
     vertical-align: top
+    border-top: 6px solid #000
+    &.other_expense
+      border-top-color: #f7941d
+    &.training
+      border-top-color: #faf066
+    &.tournament
+      border-top-color: #8dc63f
+    a
+      text-decoration: none
+      &:hover
+        text-decoration: underline
 
-  .th3 a
-    text-decoration: none
-    &:hover
-      text-decoration: underline
+  .th1:first-child
+    border: 1px solid red
+  
+  .sums td
+    padding-top: 8px
+    color: #777
 
   .p11n
-    input 
-      width: 22px
-      height: 20px
-      border: none
-      margin: 0 auto
+    border: 3px solid #fff
+    background-color: #eee
+    -moz-transition: background-color 0.2s ease 0s
+    a
       display: block
-      text-indent: -9999px
-      background-color: transparent
-      cursor: pointer
-
-    &:hover 
-      xbackground-color: #eee
-      box-shadow: none
-
-  .do_add
+      &:hover
+        text-decoration: none
+    &:hover
+      background-color: #ddd
+      -moz-transition: background-color 0.2s ease 0s
+  .add-wrap
     background-color: #FFCCCA
-    border-color: #FFCCCA
-     
-  .do_delete
-    background-color: #D1F3D1
-    border-color: #D1F3D1
-    input
-      background: url(checks/checks.png) -44px 0 no-repeat transparent
+    &:hover
+      background-color: #fc7974
+  .delete-wrap
+    background-color: #c2f2c2
+    &:hover
+      background-color: #74f474
+  .locked
+    background-color: #eee
+    &:hover
+      background-color: #fff
+
+
+  .username
+    padding: 6px 12px
+    background-color: #eee
+    border-radius: 10px 0 0 10px
+    text-transform: capitalize
+    border: 3px solid #fff
+    font-size: 120%
+  .me 
+    td.username
+      background-color: #ddd
+      &:hover
+        background-color: #eee
+      &.username:hover
+        background-color: #ddd
+    .last
+      background-color: #ddd
+  .last
+    width: 15px
+    border: 3px solid #fff
+    border-radius: 0 15px 15px 0
+  tr:hover 
+    .last,
+    .username
+      background-color: rgba(0,0,0,0.1)
+
+h1.participation
+  padding: 20px
 
     

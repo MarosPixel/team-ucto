@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
     end
 
     def admin?
-      role == 'admin'
+      role == 'admin' or super_admin?
     end
 
   private
