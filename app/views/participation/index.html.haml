@@ -37,16 +37,17 @@
         - b = expense.users.find_by_id(user.id).nil?
         - l = expense.locked?
         %td.tcenter.p11n{ class: "#{'add-wrap' if b and !l} #{'delete-wrap' if !b and !l} #{'locked' if l}"}
-          - if !current_user.admin? and l
-            - if b
-              = '-'
-            - else
-              = 'Áno'
-          - else
+          - if (not expense.locked? and user == current_user) or current_user.admin?
             - if b
               = link_to '<span>-</span>'.html_safe, participation_path(expense.id, user.id), class: 'do_add', method: :post, remote: true
             - else
               = link_to '<span>Áno</span>'.html_safe, participation_path(expense.id, user.id), class: 'do_delete', method: :delete, remote: true
+          - else
+            - if b
+              = '-'
+            - else
+              = 'Áno'
+
       %td.last
 
 

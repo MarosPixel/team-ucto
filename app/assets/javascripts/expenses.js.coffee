@@ -1,2 +1,3 @@
+$(document).ready ->
 
-$('.datepicker_locked_at').datepicker()
+  $('.datepicker_locked_at').datepicker()

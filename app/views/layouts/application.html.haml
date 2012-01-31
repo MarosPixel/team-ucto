@@ -4,6 +4,7 @@
     %title TeamUcto
     = favicon_link_tag
     = stylesheet_link_tag    'application'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
 
@@ -52,4 +53,3 @@
           &copy;2012 team-ucto
         .clearfix
     
-    %div= javascript_include_tag 'application' # je nakonci, aby sa nemuselo pouzivat document-ready ($ ->)

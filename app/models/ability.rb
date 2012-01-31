@@ -9,16 +9,15 @@ class Ability
       can :manage, :all
     else
       can :read, :home
-
       can :index, ParticipationPosting
-      can :change, ParticipationPosting do |partic|
-        (partic.try(:user) == user and not partic.try(:expense).locked?) or user.admin?
-      end
 
       can :read, Expense
       can [:create, :update], Expense do |expense|
         user.admin?
       end
+      #can :participate, Expense do |expense|
+      #  (not expense.locked?) or user.admin?
+      #end
 
     end
 
