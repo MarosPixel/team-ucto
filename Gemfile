@@ -1,18 +1,18 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.2.0'
 
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'devise'
 gem 'cancan'
 gem 'simple_form'
-gem 'sass-rails', '~> 3.1.4'
 gem 'acts_as_audited', '2.0.0'
 gem 'will_paginate', '~> 3.0'
 
 group :assets do
-  gem 'coffee-rails', '~> 3.1.1'
+  gem 'sass-rails', "  ~> 3.2.3"
+  gem 'coffee-rails', "~> 3.2.1"
   gem 'closure-compiler' # gem 'uglifier', '>= 1.0.3'
 end
 
