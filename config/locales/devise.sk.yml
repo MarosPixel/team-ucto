@@ -41,13 +41,11 @@ sk:
       confirmed: 'Váš účet bol úspešne overený. Teraz ste prihláseny.'
     registrations:
       signed_up: 'Vitajte! Registrácia bola úspešná.'
-      inactive_signed_up: "Registrácia bola úspešná. Avšak, nemôžeme vás prihlásiť, pretože váš účet je %{reason}."
       updated: 'Váš účet bol úspešne aktualizovaný.'
       destroyed: 'Dovidenia! Váš účet bol úspešne zrušený. Dúfame, že sa čoskoro opäť uvidíme.'
-      reasons:
-        inactive: 'neaktívny'
-        unconfirmed: 'neoverený'
-        locked: 'uzamknutý'
+      signed_up_but_unconfirmed: 'Správa s odkazom potvrdzujúcim registráciu bola poslaná na váš email. Pre aktváciu účtu, kliknite na daný odkaz.'
+      signed_up_but_inactive: 'Prihlasovanie úspešné. Avšak, účet ešte nebol aktivovaný administrátorom, takže vás nemôžeme prihlásiť.'
+      signed_up_but_locked: 'Prihlasovanie úspešné. Avšak, účet je zablokovaný, takže vás nemôžeme prihlásiť.'
     unlocks:
       send_instructions: 'O niekoľko minút obdržíte email s inštrukciami ako odomknúť vaš účet.'
       unlocked: 'Váš účet bol úspešne odomknutý. Teraz ste prihláseny'

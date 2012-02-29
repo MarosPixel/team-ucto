@@ -8,7 +8,8 @@ TeamUcto::Application.routes.draw do
   resources :other_expenses, controller: :expenses, type: 'other_expense'
 
   resources :users, except: [ :new, :create ]
-  devise_for :user, skip: [ :sessions ] do
+  devise_for :user, skip: [ :sessions ] 
+  devise_scope :user do
     get    '/login'  => 'devise/sessions#new',     as:     :new_user_session
     post   '/login'  => 'devise/sessions#create',  as:         :user_session
     get    '/logout' => 'devise/sessions#destroy'
