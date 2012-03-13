@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(:version => 20111119011243) do
     t.string   "name"
     t.date     "start_at"
     t.date     "end_at"
-    t.decimal  "total_price"
-    t.decimal  "team_fee"
-    t.decimal  "player_fee"
+    t.decimal  "total_price", :default => 0
+    t.decimal  "team_fee", :default => 0
+    t.decimal  "player_fee", :default => 0
     t.integer  "creator_id"
     t.datetime "locked_at"
     t.datetime "created_at"

@@ -26,6 +26,9 @@ class ExpensesController < ApplicationController
   # GET /expenses/new.json
   def new
     @expense = get_class.new
+    @expense.total_price = 0
+    @expense.team_fee = 0
+    @expense.player_fee = 0
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +47,7 @@ class ExpensesController < ApplicationController
     @expense.creator_id = current_user.id
 
     respond_to do |format|
-      if @expense.save
+      if @expense.save and @expense.create_expense_posting(price: @expense.calc_expense_posting_price)
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
         format.json { render json: @expense, status: :created, location: @expense }
       else
@@ -59,6 +62,7 @@ class ExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @expense.update_attributes(params[get_type])
+        update_paps
         format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
         format.json { head :ok }
       else
@@ -91,6 +95,25 @@ class ExpensesController < ApplicationController
 
     def set_expense
       @expense = get_class.find(params[:id])
+    end
+
+    def update_paps
+      # zmen cenu expense_postingu
+      @expense.expense_posting.price = @expense.calc_expense_posting_price
+      @expense.expense_posting.save
+      # zmen ceny prislsnych participation_postingov
+      @expense.participation_postings.update_all(price: calc_paps_price)
+    end
+
+    def calc_paps_price
+      if @expense.type == 'Training'
+        # pri treningu je v "player_fee" cena pre jedneho hraca
+        - @expense.player_fee
+      else # 'Tournament' a 'OtherExpense'
+        # pri ostatnych udalostiach sa cena pre jedneho hraca vyrata ako 
+        # "player_fee za kazdeho + team_fee na pocet_hracov"
+        - @expense.player_fee - (@expense.team_fee / @expense.users.count)
+      end
     end
 
 end

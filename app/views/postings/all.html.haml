@@ -1,0 +1,15 @@
+%h1 Postings#all
+%p Find me in app/views/postings/all.html.haml
+
+%table
+  %tr
+    %th Dátum
+    %th Typ
+    %th Suma
+    %th Podrobnosti
+  - @postings.each do |posting|
+    %tr
+      %td.c-gray= posting.created_at.strftime '%d.%m.%Y'
+      %td= posting_type_to_text posting
+      %td= number_to_price posting.price
+      %td.tleft= posting_detail_to_text posting

@@ -6,4 +6,5 @@ class Training < Expense
     def set_end_at
       self.end_at = start_at
     end
+
 end
