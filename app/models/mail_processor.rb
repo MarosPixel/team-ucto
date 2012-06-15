@@ -1,0 +1,2 @@
+class MailProcessor
+end

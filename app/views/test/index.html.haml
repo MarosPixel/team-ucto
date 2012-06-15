@@ -1,0 +1,9 @@
+%h1 Test#index
+%p Find me in app/views/test/index.html.haml
+
+
+- @test_content.each do |msg|
+  %div
+    - msg.each do |value|
+      %p= value
+    %hr

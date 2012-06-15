@@ -1,0 +1,9 @@
+%h1 Transactions#show
+%p Find me in app/views/transactions/show.html.haml
+
+%table
+  - @transaction.attributes.keys.each do |attribute|
+    %tr
+      %th.right= attribute.humanize
+      %td.tleft= @transaction.attributes[attribute].to_s
+     

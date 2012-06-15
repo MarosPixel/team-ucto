@@ -1,5 +1,5 @@
 TeamUcto::Application.routes.draw do
-  
+
   root to: 'home#index'
 
   resources :expenses,                              type: 'expense',      only: :index
@@ -8,7 +8,7 @@ TeamUcto::Application.routes.draw do
   resources :other_expenses, controller: :expenses, type: 'other_expense'
 
   resources :users, except: [ :new, :create ]
-  devise_for :user, skip: [ :sessions ] 
+  devise_for :user, skip: [ :sessions ]
   devise_scope :user do
     get    '/login'  => 'devise/sessions#new',     as:     :new_user_session
     post   '/login'  => 'devise/sessions#create',  as:         :user_session
@@ -24,6 +24,11 @@ TeamUcto::Application.routes.draw do
   get '/postings/all',  as:  :all_postings
   get '/postings/team', as: :team_postings
 
-  get 'audits/index', as: :audits
+  get '/transactions/extract'
+  resources :transactions, only: [ :index, :show ]
+
+  get '/audits' => 'audits#index', as: :audits
+
+  get "test" => 'test#index'
 
 end

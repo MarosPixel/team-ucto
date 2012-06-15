@@ -1,0 +1,21 @@
+%h1 Transactions#index
+%p Find me in app/views/transactions/index.html.haml
+
+%p= @contents
+
+%table
+  %tr
+    %th email
+    %th datum_transakcie
+    %th suma
+    %th vs
+    %th created_at
+    %th
+  - @transactions.each do |transaction|
+    %tr
+      %td= transaction.email_id
+      %td= transaction.datum_transakcie
+      %td= transaction.suma
+      %td= transaction.variabilny_symbol
+      %td= transaction.created_at
+      %td= link_to 'show', transaction_path(transaction)
