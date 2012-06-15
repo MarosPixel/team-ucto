@@ -10,8 +10,9 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
   acts_as_audited only: [:username, :email, :is_approved, :role]
 
-  # Setup accessible (or protected) attributes for my model
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :is_approved, :role
+  # Accessible (or protected) attributes
+  attr_accessible :username, :email, :password, :password_confirmation,
+                  :remember_me, :is_approved, :role
 
   # Validations
   validate :role, inclusion: ROLES

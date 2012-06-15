@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
   before_filter :set_expense, only: [ :show, :edit, :update, :destroy ]
   authorize_resource
-  
+
   # GET /expenses
   # GET /expenses.json
   def index

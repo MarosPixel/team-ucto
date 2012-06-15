@@ -1,6 +1,6 @@
 class ParticipationController < ApplicationController
   # manual authorization
-   
+
   # GET /participation
   # GET /participation.json
   def index
