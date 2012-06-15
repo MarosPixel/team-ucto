@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.5'
 
 gem 'jquery-rails'
 gem 'haml-rails'
@@ -11,9 +11,11 @@ gem 'acts_as_audited', '2.0.0'
 gem 'will_paginate', '~> 3.0'
 
 group :assets do
-  gem 'sass-rails', "  ~> 3.2.3"
-  gem 'coffee-rails', "~> 3.2.1"
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
   gem 'closure-compiler' # gem 'uglifier', '>= 1.0.3'
+  # gem 'bourbon'
+  # gem 'compass-rails'
 end
 
 group :production do
@@ -22,12 +24,7 @@ end
 
 group :development do
   gem 'sqlite3'
-  #gem 'eventmachine', '1.0.0.beta.4.1' # guard-livereload, vyzaduje -pre verziu pre ruby >= 1.9
-  #gem 'guard-livereload'
+  # gem 'eventmachine', '1.0.0.beta.4.1' # guard-livereload, vyzaduje -pre verziu pre ruby >= 1.9
+  # gem 'guard-livereload'
+  gem 'turn', require: false
 end
-
-group :test do
-  gem 'sqlite3'
-  gem 'turn', :require => false
-end
-
