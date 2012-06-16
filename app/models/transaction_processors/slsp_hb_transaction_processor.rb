@@ -1,0 +1,2 @@
+class SlspHbTransactionProcessor < TransactionProcessor
+end

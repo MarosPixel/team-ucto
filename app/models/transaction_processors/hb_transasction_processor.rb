@@ -1,2 +1,0 @@
-class Hb_TransactionProcessor < TransactionProcessor
-end
