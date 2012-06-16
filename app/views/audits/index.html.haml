@@ -2,7 +2,6 @@
 
 -# TODO upravit
 
-%ol
-  - @audits.each do |audit|
-    %li
-      %pre= audit.to_yaml
+- @audits.each do |audit|
+  %p
+    %pre= audit.to_yaml
