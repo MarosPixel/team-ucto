@@ -55,12 +55,5 @@ module TeamUcto
 
     #config.generators.stylesheet_engine = :sass
     #config.sass.preferred_syntax = :sass
-
-    # Nazov triedy spracuvajucej maily
-    config.mail_processor = 'ZipMailProcessor'
-
-    # Nazov triedy spracovavajucej transakcie
-    config.transaction_processor = 'HbTransactionProcessor'
-
   end
 end

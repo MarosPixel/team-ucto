@@ -1,0 +1,13 @@
+# Rozne nastavenia aplikacie, 
+# nacitavajuce sa do premennej -> APP_CONFIG['nazov_nastavenia']
+
+processors:
+
+  # Trieda spracuvajuca stahovanie mailov a ukladanie do db
+  mail: ImapMailProcessor
+
+  # Nazov triedy spracuvajucej prilohy emailu, rozkodovanie
+  attachment: ZipAttachmentProcessor 
+
+  # Nazov triedy spracovavajucej transakcie
+  transaction: SlspHbTransactionProcessor'
