@@ -1,0 +1,2 @@
+class ZipAttachmentProcessor < AttachmentProcessor
+end

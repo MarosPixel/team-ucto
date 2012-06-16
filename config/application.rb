@@ -19,6 +19,7 @@ module TeamUcto
     config.autoload_paths += %W(#{config.root}/app/models/postings
                                 #{config.root}/app/models/expenses
                                 #{config.root}/app/models/mail_processors
+                                #{config.root}/app/models/attachment_processors
                                 #{config.root}/app/models/transaction_processors)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
