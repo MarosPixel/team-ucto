@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.5'
+gem 'rails', '3.2.6'
 
 gem 'jquery-rails'
 gem 'haml-rails'
@@ -13,13 +13,12 @@ gem 'will_paginate', '~> 3.0'
 gem 'zipruby' # nesiel nainstalovat pre windows
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'closure-compiler' # gem 'uglifier', '>= 1.0.3'
+  gem 'closure-compiler' # gem 'uglifier', '>= 1.2.4'
   # gem 'bourbon'
   # gem 'compass-rails'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer'
 end
 
