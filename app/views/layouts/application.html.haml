@@ -8,7 +8,7 @@
     = csrf_meta_tags
   %body
 
-    -#%img{src: "/assets/logo.png", height: 100}
+    -# %img{src: "/assets/logo.png", height: 100}
 
     - if user_signed_in?
 
@@ -16,7 +16,7 @@
         #header
           #top-menu
             .fleft
-              -#logo
+              -# logo
               = link_to_s 'Home', root_path, 'home'
               = link_to_s 'Udalosti', expenses_path, 'expenses'
               = link_to_s 'Účasti', participations_path, 'participation'
