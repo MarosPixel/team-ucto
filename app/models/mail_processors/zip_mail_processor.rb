@@ -1,2 +1,0 @@
-class ZipMailProcessor < MailProcessor
-end

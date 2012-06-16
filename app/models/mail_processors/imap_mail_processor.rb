@@ -1,0 +1,2 @@
+class ImapMailProcessor < MailProcessor
+end
