@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120416174436) do
+ActiveRecord::Schema.define(:version => 20120617050755) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -65,9 +65,15 @@ ActiveRecord::Schema.define(:version => 20120416174436) do
     t.string   "imap_id"
     t.text     "content"
     t.string   "state"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.datetime "received_at"
+    t.string   "send_by"
+    t.text     "envelope"
+    t.text     "attachment"
   end
+
+  add_index "mails", ["imap_id"], :name => "index_mails_on_imap_id"
 
   create_table "postings", :force => true do |t|
     t.string   "type"
