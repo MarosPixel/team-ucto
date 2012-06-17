@@ -14,7 +14,7 @@ class ImapMailProcessor < MailProcessor
 
   public
 
-    def self.download_new_mails
+    def self.download_mails
       imap = imap_connect
 
       max_imap_id = Mail::get_max_imap_id
@@ -36,7 +36,7 @@ class ImapMailProcessor < MailProcessor
             envelope:   data.attr['ENVELOPE'],
             content:    data.attr['BODY'],
             attachment: data.attr['BODY[2]'],
-            state:      Mail::STATES[0]
+            state:      :saved
           )
         end
       end
@@ -44,7 +44,7 @@ class ImapMailProcessor < MailProcessor
       imap_disconnect(imap)
     end
 
-    def self.test_download_new_mails
+    def self.test_download_mails
       imap = imap_connect
 
       msgs = []
@@ -63,7 +63,7 @@ class ImapMailProcessor < MailProcessor
           msg << data.attr['ENVELOPE']
           msg << data.attr['BODY']
           msg << data.attr['BODY[2]']
-          msg << Mail::STATES[0]
+          msg << :saved
 
           msgs << msg
         end

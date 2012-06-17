@@ -58,7 +58,8 @@ class Mail < ActiveRecord::Base
 
         msg = []
         # msg << data.attr['ENVELOPE'].date
-        msg << "#{data.attr['ENVELOPE'].from[0].mailbox}@#{data.attr['ENVELOPE'].from[0].host}"
+        # msg << "#{data.attr['ENVELOPE'].from[0].mailbox}@#{data.attr['ENVELOPE'].from[0].host}"
+        msg << data.attr['BODY']
         msg << data.attr['ENVELOPE']
         msg << data.attr['UID']
         msg << data.attr['BODY']
@@ -70,45 +71,52 @@ class Mail < ActiveRecord::Base
 
 
 
-        # if attachment
+        if attachment
 
-        #   dir = Dir.mktmpdir('team_ucto')
+          dir_path = Dir.mktmpdir('team_ucto')
 
-        #   binattachment = attachment.unpack('m')[0]
+          binattachment = attachment.unpack('m')[0]
 
-        #   tmp = Tempfile.new('mail.zip', dir, encoding: 'ascii-8bit')
-        #   tmp.binmode
-        #   tmp.write(binattachment)
-        #   tmp.close
+          tmp = Tempfile.new('mail.zip', dir_path, encoding: 'ascii-8bit')
+          tmp.binmode
+          tmp.write(binattachment)
+          tmp.close
 
-        #   # rozbali zip tmp.path zaheslovany heslom 'heslo' do adresara dir
-        #   # a prepise pripadne existujuce subory (situacia by nemala nastat)
-        #   q = Kernel.system('M:\\devkit\\bin\\unzip.exe', '-P', 'heslo', '-o', '-d', dir, tmp.path)
-        #   msgs << [q, dir, tmp.path, $?]
-        #   tmp.unlink
+          # rozbali zip tmp.path zaheslovany heslom 'heslo' do adresara dir
+          # a prepise pripadne existujuce subory (situacia by nemala nastat)
+          q = Kernel.system('M:\\devkit\\bin\\unzip.exe', '-P', 'secret_pass', '-o', '-d', dir_path, tmp.path)
+
+          files = Dir.glob("#{dir_path}/*.txt")
+
+          file_name = File.basename(files[0])
+          file = File.open(files[0]).to_a[0]
 
 
-        #   # # vytvorit docasny adresar
-        #   # dir = Dir.mktmpdir('team_ucto')
-        #   # # vytvorit docasny subor v docasom adresari
-        #   # tmp = Tempfile.new("#{dir}/mail.zip",'wb+').write(attachment.unpack('m')[0])
+          msgs << [file, q, dir_path, tmp.path, $?]
+          tmp.unlink
 
-        #   # # pridat unikatne id + zmazat subor
-        #   # tmp = Tempfile.new("#{Rails.root}/tmp/mails/mail.zip",'wb+').write(attachment.unpack('m')[0])
 
-        #   # # archive = File.open(tmp.path, "w") do |f|
-        #   # #   f.write attachment.force_encoding("UTF-8")
-        #   # # end
+          # # vytvorit docasny adresar
+          # dir = Dir.mktmpdir('team_ucto')
+          # # vytvorit docasny subor v docasom adresari
+          # tmp = Tempfile.new("#{dir}/mail.zip",'wb+').write(attachment.unpack('m')[0])
 
-        #   # Zip::ZipFile.open(tmp.path) do |zip|
+          # # pridat unikatne id + zmazat subor
+          # tmp = Tempfile.new("#{Rails.root}/tmp/mails/mail.zip",'wb+').write(attachment.unpack('m')[0])
 
-        #   #   priloha = zip.read("priloha.txt")
+          # # archive = File.open(tmp.path, "w") do |f|
+          # #   f.write attachment.force_encoding("UTF-8")
+          # # end
 
-        #   # end
+          # Zip::ZipFile.open(tmp.path) do |zip|
 
-        #   # tmp.unlink
+          #   priloha = zip.read("priloha.txt")
 
-        # end
+          # end
+
+          # tmp.unlink
+
+        end
 
 
       end
