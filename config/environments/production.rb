@@ -67,7 +67,7 @@ TeamUcto::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => 'testdevise.sk',
+    :domain               => 'team-ucto.sk',
     :user_name            => 'ww784501@gmail.com',
     :password             => 'ww7845013',
     :authentication       => 'plain',
