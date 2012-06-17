@@ -30,6 +30,8 @@
                 = link_to_s 'Transakcie', transactions_path, 'transactions'
               - if can? :index, Audit
                 = link_to_s 'Audits', audits_path, 'audits'
+              - if can? :index, Mail
+                = link_to_s 'Mails', mails_path, 'mails'
 
             .fright
               %b= current_user.username
