@@ -25,11 +25,9 @@ TeamUcto::Application.routes.draw do
   get '/postings/team', as: :team_postings
 
   resources :transactions, only: [ :index, :show ]
-
-  get '/audits' => 'audits#index', as: :audits
+  resources :mails,  only: [ :index, :show ]
+  resources :audits, only: :index
 
   get '/test' => 'test#index'
-
-  get '/mails' => 'mails#index', as: :mails
 
 end

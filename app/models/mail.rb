@@ -14,7 +14,7 @@ class Mail < ActiveRecord::Base
       if max_id.blank?
         0
       else
-        max_id
+        max_id.to_i
       end
     end
 

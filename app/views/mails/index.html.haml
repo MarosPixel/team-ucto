@@ -1,8 +1,27 @@
 %h1 Mails
 
--# TODO upravit
+- if @mails.nil?
 
-- @mails.each do |mail|
-  %p
-    %pre= mail.to_yaml
-  
+  Ziadne maily
+
+- else
+
+  %table
+    %tr
+      %th Id
+      %th Imap id
+      %th State
+      %th Send by
+      %th Received date
+      %th Download date
+      %th
+
+    - @mails.each do |mail|
+      %tr
+        %td= mail.id
+        %td= mail.imap_id
+        %td= mail.state
+        %td= mail.send_by
+        %td= mail.received_at
+        %td= mail.created_at
+        %td= link_to 'Show', mail_path(mail)

@@ -1,0 +1,37 @@
+%h1
+  %span.cseda Show
+  mail
+
+%table.show.fleft
+  %tr
+    %th Id:
+    %td= @mail.id
+  %tr
+    %th Imap id:
+    %td= @mail.imap_id
+  %tr
+    %th Received at:
+    %td= @mail.received_at
+  %tr
+    %th Send by:
+    %td= @mail.send_by
+  %tr
+    %th State:
+    %td= @mail.state
+  %tr
+    %th Envelope:
+    %td= @mail.envelope
+  %tr
+    %th Content:
+    %td= @mail.content
+  %tr
+    %th Attachment:
+    %td= @mail.attachment
+  %tr
+    %th Created at:
+    %td= @mail.created_at
+  %tr
+    %th Updated_at
+    %td= @mail.updated_at
+
+= link_to 'Back', mails_path
