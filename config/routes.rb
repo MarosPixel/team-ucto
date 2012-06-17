@@ -29,6 +29,8 @@ TeamUcto::Application.routes.draw do
 
   get '/audits' => 'audits#index', as: :audits
 
-  get "test" => 'test#index'
+  get '/test' => 'test#index'
+
+  get '/mails' => 'mails#index', as: :mails
 
 end
