@@ -2,7 +2,7 @@
   %span.cseda Show
   mail
 
-%table.show.fleft
+%table.show.tleft
   %tr
     %th Id:
     %td= @mail.id
@@ -28,10 +28,17 @@
     %th Attachment:
     %td= @mail.attachment
   %tr
+    %th File name:
+    %td= @mail.file_name
+  %tr
+    %th Decoded attachment:
+    %td= @mail.decoded_attachment
+  %tr
     %th Created at:
     %td= @mail.created_at
   %tr
     %th Updated_at
     %td= @mail.updated_at
 
-= link_to 'Back', mails_path
+%p
+  = link_to 'Back', mails_path

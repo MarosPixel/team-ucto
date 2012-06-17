@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617050755) do
+ActiveRecord::Schema.define(:version => 20120617112024) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -34,16 +34,6 @@ ActiveRecord::Schema.define(:version => 20120617050755) do
   add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
 
-  create_table "emails", :force => true do |t|
-    t.string   "state"
-    t.text     "content"
-    t.text     "unparsed_content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "emails", ["state"], :name => "index_emails_on_state"
-
   create_table "expenses", :force => true do |t|
     t.string   "type",        :null => false
     t.string   "name"
@@ -65,12 +55,14 @@ ActiveRecord::Schema.define(:version => 20120617050755) do
     t.string   "imap_id"
     t.text     "content"
     t.string   "state"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.datetime "received_at"
     t.string   "send_by"
     t.text     "envelope"
     t.text     "attachment"
+    t.text     "decoded_attachment"
+    t.string   "file_name"
   end
 
   add_index "mails", ["imap_id"], :name => "index_mails_on_imap_id"
