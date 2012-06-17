@@ -43,7 +43,8 @@
     %th Description:
     %td= @expense.description
 
+%p
+  = link_to 'Back', expenses_path
+  \|
+  = link_to 'Edit', [:edit, @expense]
 
-= link_to 'Edit', [:edit, @expense]
-\|
-= link_to 'Back', expenses_path
