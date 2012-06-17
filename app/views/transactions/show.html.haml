@@ -1,9 +1,12 @@
 %h1 Transactions#show
 %p Find me in app/views/transactions/show.html.haml
 
-%table
+%table.show
   - @transaction.attributes.keys.each do |attribute|
     %tr
-      %th.right= attribute.humanize
-      %td.tleft= @transaction.attributes[attribute].to_s
+      %th= attribute.humanize
+      %td= @transaction.attributes[attribute].to_s
+
+%p
+  = link_to 'Back', transactions_path
      
