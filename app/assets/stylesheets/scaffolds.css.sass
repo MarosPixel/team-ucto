@@ -1,7 +1,7 @@
 body
   margin: 0
   padding: 0
-  background-color: #fff
+  background-color: #f3f3f3
   color: #333
   font-family: verdana, arial, helvetica, sans-serif
   font-size: 13px
@@ -79,14 +79,15 @@ table
       width: 350px
       background: url(header-logo.png) 0 0 no-repeat transparent
 
-#header-wrap.not_logged
-  #header
-    height: 150px
-    #logo
+.not_logged
+  #header-wrap
+    #header
       height: 150px
-      width: 960px
-      margin: 0 10px
-      background: url(header-logo-big.png) -50px 0 no-repeat transparent
+      #logo
+        height: 150px
+        width: 960px
+        margin: 0 10px
+        background: url(header-logo-big.png) -50px 0 no-repeat transparent
 
 
 
@@ -94,6 +95,9 @@ table
   xwidth: 960px
   margin: 0 auto
   padding: 10px
+  padding-bottom: 30px
+  background-color: #fff
+  min-height: 400px
 
 #sign_in-wrap
   .simple_form
@@ -115,6 +119,5 @@ table
     xwidth: 960px
     margin: 0 auto
     padding: 5px
-    margin-top: 30px
     border-top: 1px solid #cdcdcd
     color: #aaa

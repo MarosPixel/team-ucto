@@ -6,7 +6,7 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
-  %body
+  %body{class: "#{'not_logged' unless user_signed_in?}"}
 
     -# %img{src: "/assets/logo.png", height: 100}
 
@@ -42,7 +42,7 @@
             .clearfix
 
     - else
-      #header-wrap.not_logged
+      #header-wrap
         #header
           #logo
 
@@ -54,11 +54,18 @@
       = yield
 
     #footer-wrap
-      #footer 
-        .fright
-          = link_to 'Home', root_path
-          |
-          = link_to 'Top', '#'
-        .fleft
+      #footer
+        - if user_signed_in?
+          .tcenter
+            = link_to 'Home', root_path
+            |
+            = link_to_s 'Udalosti', expenses_path, 'expenses'
+            |
+            = link_to_s 'Účasti', participations_path, 'participation'
+            |
+            = link_to_s 'Moje výdavky', my_postings_path, 'postings', 'my'
+            |
+            = link_to 'Top', '#'
+
+        .tcenter
           &copy;2012 team-ucto
-        .clearfix
