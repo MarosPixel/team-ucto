@@ -1,8 +1,8 @@
-class SlspHbTransactionProcessor < TransactionProcessor
+class SlspHbExtractProcessor < ExtractProcessor
   # Homebanking SLSP
   # http://www.slsp.sk/downloads/format_hb_vzor.pdf
 
-  def self.extract_all
+  def self.extract
     mails = Mails.find_all_by_state(:decoded)
 
     if mails.nil?
@@ -10,7 +10,7 @@ class SlspHbTransactionProcessor < TransactionProcessor
     else
 
       mails.each do |mail|
-        extract(mail)
+        extract_one(mail)
       end
 
     end
@@ -19,7 +19,7 @@ class SlspHbTransactionProcessor < TransactionProcessor
 
   private
 
-    def self.extract(mail)
+    def self.extract_one(mail)
       if mail.decoded_attachment.blank?
         # Nema ziadnu prilohu
       else
