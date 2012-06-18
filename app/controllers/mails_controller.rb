@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class MailsController < ApplicationController
 
   # GET /mails
@@ -15,6 +17,15 @@ class MailsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.haml
+    end
+  end
+
+  # DELETE /mail/1
+  def destroy
+    Mail.find(params[:id]).destroy
+
+    respond_to do |format|
+      format.html { redirect_to mails_url, notice: "Úspešne zmazané." }
     end
   end
 

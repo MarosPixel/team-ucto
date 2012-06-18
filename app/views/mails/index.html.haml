@@ -14,7 +14,7 @@
       %th Send by
       %th Received date
       %th Download date
-      %th
+      %th{colspan: 2}
 
     - @mails.each do |mail|
       %tr
@@ -24,7 +24,8 @@
         %td= mail.send_by
         %td= mail.received_at
         %td= mail.created_at
-        %td= link_to 'Show', mail_path(mail)
+        %td= link_to 'Show', mail
+        %td= link_to 'Delete', mail, confirm: 'Are you sure?', method: :delete
 
 %p
   = link_to 'Download Mails', process_download_path
