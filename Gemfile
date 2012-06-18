@@ -29,8 +29,8 @@ end
 group :development do
   gem 'sqlite3'
   # gem 'eventmachine', '1.0.0.beta.4.1' # guard-livereload, vyzaduje -pre verziu pre ruby >= 1.9
-  # gem 'guard-livereload'
-  gem 'turn', require: false
+  # gem 'guard-livereload', require: false
+  # gem 'turn', require: false
 end
 
 # To use ActiveModel has_secure_password
