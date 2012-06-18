@@ -1,7 +1,7 @@
 %h1 Test#index
 %p Find me in app/views/test/index.html.haml
 
-- if @test_content.nil?
+- if @test_content.blank?
   prazdny test_content
 - else
   - @test_content.each do |msg|
