@@ -22,6 +22,8 @@ class ZipDecodeProcessor < DecodeProcessor
       end
 
     end
+
+    mails.blank? ? 0 : mails.length
   end
 
   def self.decode_one(mail)

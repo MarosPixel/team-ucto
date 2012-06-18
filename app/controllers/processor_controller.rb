@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class ProcessorController < ApplicationController
   skip_before_filter :authenticate_user!, only: :start 
   
@@ -17,9 +19,9 @@ class ProcessorController < ApplicationController
 
   # GET /process/download
   def download
-    do_download
+    count = do_download
 
-    redirect_to mails_url, notice: "Downloaded."
+    redirect_to mails_url, notice: "Sťahovanie ukončené. Počet nových emailov: #{count}"
   end
 
   # GET /process/decode
@@ -48,9 +50,10 @@ private
 
   # GET /process/download
   def do_download(go_next = false)
-    DownloadProcessor::download_all
-    
+    mail_count = DownloadProcessor::download_all
     do_decode(true) if go_next
+
+    mail_count
   end
 
   # GET /process/decode

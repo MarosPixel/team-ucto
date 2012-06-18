@@ -15,6 +15,8 @@ class ImapDownloadProcessor < DownloadProcessor
   public
 
     def self.download_all
+      mail_count = 0
+
       imap = imap_connect
 
       max_imap_id = Mail::get_max_imap_id
@@ -38,10 +40,13 @@ class ImapDownloadProcessor < DownloadProcessor
             attachment: data.attr['BODY[2]'],
             state:      Mail::STATES[0]
           )
+          mail_count += 1
         end
       end
 
       imap_disconnect(imap)
+
+      mail_count
     end
 
     def self.test_download_all
