@@ -18,9 +18,9 @@ module TeamUcto
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/app/models/postings
                                 #{config.root}/app/models/expenses
-                                #{config.root}/app/models/mail_processors
-                                #{config.root}/app/models/attachment_processors
-                                #{config.root}/app/models/transaction_processors)
+                                #{config.root}/app/models/download_processors
+                                #{config.root}/app/models/decode_processors
+                                #{config.root}/app/models/extract_processors)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.

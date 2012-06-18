@@ -1,12 +1,12 @@
 class ExtractProcessor
 
-  def self.extract
+  def self.extract_all
     extract_processor::extract_all
   end
 
   private
 
-    def extract_processor
+    def self.extract_processor
       APP_CONFIG['processors']['extract'].constantize
     end
 

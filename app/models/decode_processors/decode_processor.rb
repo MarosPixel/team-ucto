@@ -1,7 +1,7 @@
 class DecodeProcessor
 
-  def self.decode
-    decode_processor::decode
+  def self.decode_all
+    decode_processor::decode_all
   end
 
   private

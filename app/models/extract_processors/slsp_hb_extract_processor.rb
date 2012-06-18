@@ -2,7 +2,7 @@ class SlspHbExtractProcessor < ExtractProcessor
   # Homebanking SLSP
   # http://www.slsp.sk/downloads/format_hb_vzor.pdf
 
-  def self.extract
+  def self.extract_all
     mails = Mails.find_all_by_state(:decoded)
 
     if mails.nil?

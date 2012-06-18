@@ -10,8 +10,8 @@ class ZipDecodeProcessor < DecodeProcessor
   ZIP_PASS = 'secret_pass'
   UNZIP_PATH = 'M:\\devkit\\bin\\unzip.exe'
 
-  def self.decode
-    mails = Mail.find_all_by_state(:saved)
+  def self.decode_all
+    mails = Mail.find_all_by_state(Mail::STATES[0])
 
     if mails.nil?
       # "Ziadne maily na spracovanie"
@@ -42,7 +42,7 @@ class ZipDecodeProcessor < DecodeProcessor
 
         mail.file_name = File.basename(files[0])
         mail.decoded_attachment = File.open(files[0]).to_a[0]
-        mail.state = :decoded
+        mail.state = Mail::STATES[1]
         mail.save
       end
 

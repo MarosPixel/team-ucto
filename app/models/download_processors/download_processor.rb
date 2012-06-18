@@ -1,10 +1,10 @@
 class DownloadProcessor
 
-  def self.download(test = false)
+  def self.download_all(test = false)
     if test
-      download_processor::test_download
+      download_processor::test_download_all
     else
-      download_processor::download
+      download_processor::download_all
     end
   end
 
