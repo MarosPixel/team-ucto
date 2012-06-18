@@ -30,7 +30,6 @@ GEM
       multi_json (~> 1.0)
     acts_as_audited (2.0.0)
       rails (>= 3.0.3)
-    ansi (1.4.2)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
@@ -119,8 +118,6 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    turn (0.9.5)
-      ansi
     tzinfo (0.3.33)
     warden (1.1.1)
       rack (>= 1.0)
@@ -143,5 +140,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.5)
   simple_form
   sqlite3
-  turn
   will_paginate (~> 3.0)
