@@ -25,7 +25,7 @@ class MailsController < ApplicationController
     Mail.find(params[:id]).destroy
 
     respond_to do |format|
-      format.html { redirect_to mails_url, notice: "Úspešne zmazané." }
+      format.html { redirect_to mails_url, notice: "Mail #{params[:id]} bol zmazaný." }
     end
   end
 
