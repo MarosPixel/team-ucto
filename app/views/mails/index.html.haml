@@ -28,6 +28,8 @@
         %td= link_to 'Delete', mail, confirm: 'Are you sure?', method: :delete
 
 %p
+  = link_to 'Delete all', mails_path, confirm: 'Are you sure?', method: :delete
+%p
   = link_to 'Download Mails', process_download_path
   |
   = link_to 'Decode Attachments', process_decode_path

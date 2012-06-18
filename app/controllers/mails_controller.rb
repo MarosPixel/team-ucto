@@ -29,4 +29,13 @@ class MailsController < ApplicationController
     end
   end
 
+  # DELETE /mails
+  def destroy_all
+    Mail.destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to mails_url, notice: "Všetky maily boli zmazané." }
+    end
+  end
+
 end

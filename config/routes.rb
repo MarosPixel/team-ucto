@@ -26,6 +26,7 @@ TeamUcto::Application.routes.draw do
 
   delete '/transactions' => 'transactions#destroy_all'
   resources :transactions, only: [ :index, :show, :destroy ]
+  delete '/mails' => 'mails#destroy_all'
   resources :mails,  only: [ :index, :show, :destroy ]
   resources :audits, only: :index
 
