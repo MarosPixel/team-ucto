@@ -36,7 +36,7 @@ class ImapDownloadProcessor < DownloadProcessor
             envelope:   data.attr['ENVELOPE'],
             content:    data.attr['BODY'],
             attachment: data.attr['BODY[2]'],
-            state:      MAIL::STATES[0]
+            state:      Mail::STATES[0]
           )
         end
       end
@@ -63,7 +63,7 @@ class ImapDownloadProcessor < DownloadProcessor
           msg << data.attr['ENVELOPE']
           msg << data.attr['BODY']
           msg << data.attr['BODY[2]']
-          msg << MAIL::STATES[0]
+          msg << Mail::STATES[0]
 
           msgs << msg
         end
