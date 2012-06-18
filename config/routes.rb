@@ -29,6 +29,13 @@ TeamUcto::Application.routes.draw do
   resources :mails,  only: [ :index, :show ]
   resources :audits, only: :index
 
+  get '/process'           => 'processor#index'
+  get '/process/start'     => 'processor#start'
+  get '/process/download'  => 'processor#download'
+  get '/process/decode'    => 'processor#decode'
+  get '/process/extract'   => 'processor#extract'
+  get '/process/assign'    => 'processor#assign'
+
   get '/test' => 'test#index'
 
 end

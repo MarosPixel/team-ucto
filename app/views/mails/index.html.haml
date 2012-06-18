@@ -25,3 +25,15 @@
         %td= mail.received_at
         %td= mail.created_at
         %td= link_to 'Show', mail_path(mail)
+
+%p
+  = link_to 'Download Mails', process_download_path
+  |
+  = link_to 'Decode Attachments', process_decode_path
+  |
+  = link_to 'Extract Transactions', process_extract_path
+  |
+  = link_to 'Assign Transactions', process_assign_path
+
+%p
+  = link_to 'Start Process', process_start_path

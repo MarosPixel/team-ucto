@@ -3,7 +3,7 @@ require 'net/imap'
 #require 'zip/zip'
 
 class Mail < ActiveRecord::Base
-  STATES = %w{ saved decoded parsed associated }
+  STATES = %w{ saved decoded extracted assigned fail }
 
   has_many :transactions
 
