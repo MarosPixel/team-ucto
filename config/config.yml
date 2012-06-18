@@ -10,4 +10,4 @@ processors:
   decode: ZipDecodeProcessor
 
   # Nazov triedy spracovavajucej transakcie
-  extract: SlspHbExtractProcessor'
+  extract: SlspHbExtractProcessor
