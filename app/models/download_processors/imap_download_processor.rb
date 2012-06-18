@@ -1,6 +1,6 @@
 require 'net/imap'
 
-class ImapMailProcessor < MailProcessor
+class ImapDownloadProcessor < DownloadProcessor
 
   # imap settings
   IMAP_IMAP = 'imap.gmail.com'
@@ -14,7 +14,7 @@ class ImapMailProcessor < MailProcessor
 
   public
 
-    def self.download_mails
+    def self.download
       imap = imap_connect
 
       max_imap_id = Mail::get_max_imap_id
@@ -44,7 +44,7 @@ class ImapMailProcessor < MailProcessor
       imap_disconnect(imap)
     end
 
-    def self.test_download_mails
+    def self.test_download
       imap = imap_connect
 
       msgs = []

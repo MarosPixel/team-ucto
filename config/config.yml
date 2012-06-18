@@ -4,7 +4,7 @@
 processors:
 
   # Trieda spracuvajuca stahovanie mailov a ukladanie do db
-  mail: ImapMailProcessor
+  download: ImapDownloadProcessor
 
   # Nazov triedy spracuvajucej prilohy emailu, rozkodovanie
   attachment: ZipAttachmentProcessor
