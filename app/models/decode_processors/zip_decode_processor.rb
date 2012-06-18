@@ -18,7 +18,7 @@ class ZipDecodeProcessor < DecodeProcessor
     else
 
       mails.each do |mail|
-        decode_attachment(mail)
+        decode_one(mail)
       end
 
     end
