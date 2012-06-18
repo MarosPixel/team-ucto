@@ -76,7 +76,7 @@ class ParticipationController < ApplicationController
           group_id += 1
           groups[group_id] = []
           groups[group_id][0] = [] # sub groups
-          groups[group_id][1] = expense.start_at.strftime('%B %Y') # title (January 2012)
+          groups[group_id][1] = l expense.start_at, format: '%B %Y' # title (January 2012)
           groups[group_id][2] = 'head_color_' + expense.start_at.mon().to_s # color_class
         end
         groups[group_id][0] << expense

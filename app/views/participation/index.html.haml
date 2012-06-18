@@ -15,9 +15,9 @@
       - table_group[0].each do |expense|
         %td{ class: "th2 #{table_group[2]}" }
           - if expense.type == 'Training'
-            = expense.start_at.strftime('%a %e')
+            = l expense.start_at, format: '%a %e.%m'
           - else
-            = expense.start_at.strftime('%e.%m') + ' - ' + expense.end_at.strftime('%e.%m')
+            = l(expense.start_at, format: '%e.%m') + ' - ' + l(expense.end_at, format: '%e.%m')
     %td
 
   // 3. riadok nazov eventu
