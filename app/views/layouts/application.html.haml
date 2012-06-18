@@ -48,8 +48,10 @@
 
     #content
 
-      %p#alert= alert
-      %p#notice= notice
+      - unless alert.blank?
+        %p#alert= alert
+      - unless notice.blank?
+        %p#notice= notice
 
       = yield
 
