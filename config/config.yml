@@ -7,7 +7,7 @@ processors:
   download: ImapDownloadProcessor
 
   # Nazov triedy spracuvajucej prilohy emailu, rozkodovanie
-  attachment: ZipAttachmentProcessor
+  decode: ZipDecodeProcessor
 
   # Nazov triedy spracovavajucej transakcie
   transaction: SlspHbTransactionProcessor'

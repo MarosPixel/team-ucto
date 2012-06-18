@@ -1,7 +1,7 @@
 #require 'tempfile'
 #require 'zip/zip'
 
-class ZipAttachmentProcessor < AttachmentProcessor
+class ZipDecodeProcessor < DecodeProcessor
   # rozbalovanie archivu pre windows
   # na rozbalenie je potrebna externa UNZIP kniznica (unzip.exe)
 
@@ -10,7 +10,7 @@ class ZipAttachmentProcessor < AttachmentProcessor
   ZIP_PASS = 'secret_pass'
   UNZIP_PATH = 'M:\\devkit\\bin\\unzip.exe'
 
-  def self.decode_attachments
+  def self.decode
     mails = Mail.find_all_by_state(:saved)
 
     if mails.nil?
@@ -24,7 +24,7 @@ class ZipAttachmentProcessor < AttachmentProcessor
     end
   end
 
-  def self.decode_attachment(mail)
+  def self.decode_one(mail)
     # Dir.mktmpdir(TMP_DIR_NAME) do |dir_path|
     dir_path = Dir.mktmpdir(TMP_DIR)
 
