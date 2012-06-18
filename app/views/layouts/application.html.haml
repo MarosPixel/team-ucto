@@ -20,18 +20,18 @@
               = link_to_s 'Home', root_path, 'home'
               = link_to_s 'Udalosti', expenses_path, 'expenses'
               = link_to_s 'Účasti', participations_path, 'participation'
+              - if can? :index, User
+                = link_to_s 'Používatelia', users_path, 'users'
               - if can? :read_team, Posting
                 = link_to_s 'Tímove výdavky', team_postings_path, 'postings', 'team'
               - if can? :read_all, Posting
                 = link_to_s 'Všetky výdavky', all_postings_path, 'postings', 'all'
-              - if can? :index, User
-                = link_to_s 'Používatelia', users_path, 'users'
-              - if can? :index, User
+              - if can? :index, Transaction
                 = link_to_s 'Transakcie', transactions_path, 'transactions'
-              - if can? :index, Audit
-                = link_to_s 'Audits', audits_path, 'audits'
               - if can? :index, Mail
                 = link_to_s 'Mails', mails_path, 'mails'
+              - if can? :index, Audit
+                = link_to_s 'Audits', audits_path, 'audits'
 
             .fright
               %b= current_user.username
@@ -57,7 +57,7 @@
       #footer
         - if user_signed_in?
           .tcenter
-            = link_to 'Home', root_path
+            = link_to_s 'Home', root_path, 'home'
             |
             = link_to_s 'Udalosti', expenses_path, 'expenses'
             |
