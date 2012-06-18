@@ -9,4 +9,6 @@ Navrhnúť a implementovať aplikáciu pre účtovníctvo športového tímu. Ce
 **Kľúčové slová**  
 účtovníctvo, športový tím, elektronický podpis, testami riadený vývoj, MVC framework
 
-Dokumentácia - [project wiki](https://github.com/MarosPixel/team-ucto/wiki)
+Dokumentácia - [project wiki](https://github.com/marospixel/team-ucto/wiki)  
+Zdrojový kód - [github.com/marospixel/team-ucto](https://github.com/marospixel/team-ucto)  
+Testovacia aplikácia = [team-ucto.heroku.com](https://team-ucto.heroku.com)
