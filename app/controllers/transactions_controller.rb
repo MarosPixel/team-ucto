@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class TransactionsController < ApplicationController
   authorize_resource
 
@@ -18,6 +20,24 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @expense }
+    end
+  end
+
+  # DELETE /transaction/1
+  def destroy
+    Transaction.find(params[:id]).destroy
+
+    respond_to do |format|
+      format.html { redirect_to transactions_url, notice: "Transakcia #{params[:id]} bola úspešene zmazaná." }
+    end
+  end
+
+  # DELETE /transactions
+  def destroy_all
+    Transaction.destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to transactions_url, notice: "Všetky transakcie boli úspešene zmazané." }
     end
   end
 

@@ -10,7 +10,7 @@
     %th suma
     %th vs
     %th created_at
-    %th
+    %th{colspan: 2}
   - @transactions.each do |transaction|
     %tr
       %td= transaction.email_id
@@ -19,3 +19,8 @@
       %td= transaction.variabilny_symbol
       %td= transaction.created_at
       %td= link_to 'show', transaction_path(transaction)
+      - if can? :destroy, transaction
+        %td= link_to 'delete', transaction, confirm: 'Are you sure?', method: :delete
+
+- if can? :destroy_all, Transaction
+  %p= link_to 'Delete all', transactions_path, confirm: 'Are you sure?', method: :delete

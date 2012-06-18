@@ -24,7 +24,8 @@ TeamUcto::Application.routes.draw do
   get '/postings/all',  as:  :all_postings
   get '/postings/team', as: :team_postings
 
-  resources :transactions, only: [ :index, :show ]
+  delete '/transactions' => 'transactions#destroy_all'
+  resources :transactions, only: [ :index, :show, :destroy ]
   resources :mails,  only: [ :index, :show ]
   resources :audits, only: :index
 
