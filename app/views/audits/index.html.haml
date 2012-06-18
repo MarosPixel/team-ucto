@@ -1,7 +1,16 @@
 %h1 Audits
 
--# TODO upravit
+- if @audits.nil?
+  Neobsahuje ziadne zaznamy
+- else
 
-- @audits.each do |audit|
-  %p
-    %pre= audit.to_yaml
+  %table
+
+    %tr
+    - Audit.column_names.each do |column|
+      %th= column.humanize
+
+    - @audits.each do |audit|
+      %tr
+      - audit.attributes.keys.each do |attribute|
+        %td= audit.attributes[attribute].to_s
