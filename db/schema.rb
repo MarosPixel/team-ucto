@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120619040439) do
+ActiveRecord::Schema.define(:version => 20120619134408) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(:version => 20120619040439) do
 
   create_table "transactions", :force => true do |t|
     t.integer  "email_id"
-    t.string   "datum_transakcie",        :limit => 10
+    t.string   "datum_transakcie",        :limit => 12
     t.string   "predcislo_uctu",          :limit => 6
     t.string   "cislo_uctu",              :limit => 10
     t.string   "predcislo_protiuctu",     :limit => 6

@@ -24,6 +24,7 @@ end
 
 group :production do
   gem 'pg' # potrebne pre heroku
+  gem 'taps', require: false # heroku na spravu db
 end
 
 group :development do
