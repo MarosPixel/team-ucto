@@ -49,37 +49,6 @@ class ImapDownloadProcessor < DownloadProcessor
       mail_count
     end
 
-    def self.test_download_all
-      imap = imap_connect
-
-      msgs = []
-      max_imap_id = Email::get_max_imap_id
-      max_receive_date = Email::get_max_receive_date
-
-      imap.select('INBOX')
-      imap.search(['FROM', SENDER_MAIL, 'SINCE', max_receive_date]).each do |msg_id|
-        data = imap.fetch(msg_id, ['ENVELOPE', 'UID', 'BODY', 'BODY[2]'])[0]
-
-        uid = data.attr['UID']
-
-        if uid > max_imap_id
-          msg = []
-          msg << uid
-          msg << data.attr['ENVELOPE']
-          msg << data.attr['BODY']
-          msg << data.attr['BODY[2]']
-          msg << :saved
-
-          msgs << msg
-        end
-      end
-
-      imap_disconnect(imap)
-
-      msgs << [SENDER_MAIL, max_receive_date]
-      msgs
-    end
-
   private
 
     def self.imap_connect
