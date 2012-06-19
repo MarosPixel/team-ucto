@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618210103) do
+ActiveRecord::Schema.define(:version => 20120619040439) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(:version => 20120618210103) do
   add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
   add_index "audits", ["user_id", "user_type"], :name => "user_index"
 
+  create_table "emails", :force => true do |t|
+    t.string   "imap_id"
+    t.text     "content"
+    t.string   "state"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.datetime "received_at"
+    t.string   "send_by"
+    t.text     "envelope"
+    t.text     "attachment"
+    t.text     "decoded_attachment"
+    t.string   "file_name"
+  end
+
+  add_index "emails", ["imap_id"], :name => "index_mails_on_imap_id"
+
   create_table "expenses", :force => true do |t|
     t.string   "type",        :null => false
     t.string   "name"
@@ -50,22 +66,6 @@ ActiveRecord::Schema.define(:version => 20120618210103) do
   end
 
   add_index "expenses", ["type"], :name => "index_expenses_on_type"
-
-  create_table "mails", :force => true do |t|
-    t.string   "imap_id"
-    t.text     "content"
-    t.string   "state"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.datetime "received_at"
-    t.string   "send_by"
-    t.text     "envelope"
-    t.text     "attachment"
-    t.text     "decoded_attachment"
-    t.string   "file_name"
-  end
-
-  add_index "mails", ["imap_id"], :name => "index_mails_on_imap_id"
 
   create_table "postings", :force => true do |t|
     t.string   "type"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(:version => 20120618210103) do
   add_index "postings", ["user_id"], :name => "index_postings_on_user_id"
 
   create_table "transactions", :force => true do |t|
-    t.integer  "mail_id"
+    t.integer  "email_id"
     t.string   "datum_transakcie",        :limit => 10
     t.string   "predcislo_uctu",          :limit => 6
     t.string   "cislo_uctu",              :limit => 10
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(:version => 20120618210103) do
     t.string   "state",                                 :default => "fail"
   end
 
-  add_index "transactions", ["mail_id"], :name => "index_transactions_on_email_id"
+  add_index "transactions", ["email_id"], :name => "index_transactions_on_email_id"
 
   create_table "users", :force => true do |t|
     t.integer  "vs"

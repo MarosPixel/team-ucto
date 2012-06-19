@@ -19,8 +19,8 @@ class ImapDownloadProcessor < DownloadProcessor
 
       imap = imap_connect
 
-      max_imap_id = Mail::get_max_imap_id
-      max_receive_date = Mail::get_max_receive_date
+      max_imap_id = Email::get_max_imap_id
+      max_receive_date = Email::get_max_receive_date
 
       # vyberat spravy iba od sendera = SENDER_MAIL a
       # ktorych cas dorucenia je vacsii ako mam najvyssie ulozene v db
@@ -31,7 +31,7 @@ class ImapDownloadProcessor < DownloadProcessor
         uid = data.attr['UID']
 
         if uid > max_imap_id
-          Mail.create(
+          Email.create(
             imap_id:    uid,
             received_at: data.attr['ENVELOPE'].date,
             send_by:    data.attr['ENVELOPE'].from[0].mailbox + '@' + data.attr['ENVELOPE'].from[0].host,
@@ -53,8 +53,8 @@ class ImapDownloadProcessor < DownloadProcessor
       imap = imap_connect
 
       msgs = []
-      max_imap_id = Mail::get_max_imap_id
-      max_receive_date = Mail::get_max_receive_date
+      max_imap_id = Email::get_max_imap_id
+      max_receive_date = Email::get_max_receive_date
 
       imap.select('INBOX')
       imap.search(['FROM', SENDER_MAIL, 'SINCE', max_receive_date]).each do |msg_id|
@@ -68,7 +68,7 @@ class ImapDownloadProcessor < DownloadProcessor
           msg << data.attr['ENVELOPE']
           msg << data.attr['BODY']
           msg << data.attr['BODY[2]']
-          msg << Mail::STATES[0]
+          msg << :saved
 
           msgs << msg
         end

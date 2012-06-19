@@ -1,7 +1,7 @@
 class DecodeProcessor
 
   def self.decode_all
-    mails = Mail.find_all_by_state(:saved)
+    mails = Email.find_all_by_state(:saved)
 
     if mails.blank?
       # "Ziadne maily na spracovanie"

@@ -28,8 +28,8 @@
                 = link_to_s 'Všetky výdavky', all_postings_path, 'postings', 'all'
               - if can? :index, Transaction
                 = link_to_s 'Transakcie', transactions_path, 'transactions'
-              - if can? :index, Mail
-                = link_to_s 'Mails', mails_path, 'mails'
+              - if can? :index, Email
+                = link_to_s 'Mails', emails_path, 'emails'
               - if can? :index, Audit
                 = link_to_s 'Audits', audits_path, 'audits'
 

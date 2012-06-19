@@ -3,7 +3,7 @@ class SlspHbExtractProcessor < ExtractProcessor
   # http://www.slsp.sk/downloads/format_hb_vzor.pdf
 
   def self.extract_all
-    mails = Mail.find_all_by_state(:decoded)
+    mails = Email.find_all_by_state(:decoded)
 
     if mails.blank?
       Rails.logger.info "Ziadne volne maily na spracovanie."
@@ -26,7 +26,7 @@ class SlspHbExtractProcessor < ExtractProcessor
         pl = line.split(';')
         if pl.length > 0
           Transaction.create(
-            mail_id: mail.id,
+            email_id: mail.id,
             datum_transakcie: pl[0],
             predcislo_uctu: pl[1],
             cislo_uctu: pl[2],

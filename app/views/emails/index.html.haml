@@ -24,11 +24,11 @@
         %td= mail.send_by
         %td= mail.received_at
         %td= mail.created_at
-        %td= link_to 'Show', mail
-        %td= link_to 'Delete', mail, confirm: 'Are you sure?', method: :delete
+        %td= link_to 'Show', email
+        %td= link_to 'Delete', email, confirm: 'Are you sure?', method: :delete
 
 %p
-  = link_to 'Delete all', mails_path, confirm: 'Are you sure?', method: :delete
+  = link_to 'Delete all', emails_path, confirm: 'Are you sure?', method: :delete
 %p
   = link_to 'Download Mails', process_download_path
   |

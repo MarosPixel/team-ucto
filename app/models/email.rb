@@ -1,4 +1,4 @@
-class Mail < ActiveRecord::Base
+class Email < ActiveRecord::Base
 
   ## STAVY emailov
   # 1. saved      - po stiahnuti z emailoveho servera a ulozeni do db
@@ -16,7 +16,7 @@ class Mail < ActiveRecord::Base
   ## class methods
 
   def self.get_max_imap_id
-    max_id = Mail.maximum(:imap_id)
+    max_id = Email.maximum(:imap_id)
     if max_id.blank?
       0
     else
@@ -25,7 +25,7 @@ class Mail < ActiveRecord::Base
   end
 
   def self.get_max_receive_date(date_format = '%d-%b-%Y')
-    max_date = Mail.maximum(:received_at)
+    max_date = Email.maximum(:received_at)
     if max_date.nil?
       Time.parse('2000-01-01 00:00:00').strftime(date_format)
     else
@@ -34,7 +34,7 @@ class Mail < ActiveRecord::Base
   end
 
   def self.assign_all
-    mails = Mail.find_all_by_state(:extracted)
+    mails = Email.find_all_by_state(:extracted)
 
     if mails.blank?
       # ziadne maily na spracovanie

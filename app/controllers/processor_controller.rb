@@ -72,7 +72,7 @@ private
 
   # GET /process/assign
   def do_assign
-    Mail::assign_all
+    Email::assign_all
   end
 
 end

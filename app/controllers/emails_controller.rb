@@ -1,37 +1,37 @@
 # encoding: utf-8
 
-class MailsController < ApplicationController
+class EmailsController < ApplicationController
 
-  # GET /mails
+  # GET /emails
   def index
-    @mails = Mail.all
+    @mails = Email.all
 
     respond_to do |format|
       format.html # index.html.haml
     end
   end
 
-  # GET /mail/1
+  # GET /email/1
   def show
-    @mail = Mail.find(params[:id])
+    @mail = Email.find(params[:id])
 
     respond_to do |format|
       format.html # index.html.haml
     end
   end
 
-  # DELETE /mail/1
+  # DELETE /email/1
   def destroy
-    Mail.find(params[:id]).destroy
+    Email.find(params[:id]).destroy
 
     respond_to do |format|
       format.html { redirect_to mails_url, notice: "Mail #{params[:id]} bol zmazaný." }
     end
   end
 
-  # DELETE /mails
+  # DELETE /emails
   def destroy_all
-    Mail.destroy_all
+    Email.destroy_all
 
     respond_to do |format|
       format.html { redirect_to mails_url, notice: "Všetky maily boli zmazané." }
