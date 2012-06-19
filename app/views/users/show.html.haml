@@ -1,3 +1,13 @@
+%h1
+  %span.cseda Show
+  = @user.username
+
+%p
+  = link_to 'Back', :back
+  \|
+  = link_to 'Edit', edit_user_path(@user)
+
+%h2 Detaily
 %table.show
   %tr
     %th.tleft Id:
@@ -39,9 +49,8 @@
     %th.tleft Updated at
     %td= @user.updated_at
 
-  -# TODO doplnit ostatne kolonky + userove expensey, postingy...
+%h2 Prihlásený na udalosti
+= render partial: "expenses/mini_index", locals: { expenses: @user.expenses }
 
-%p
-  = link_to 'Back', users_path
-  \|
-  = link_to 'Edit', edit_user_path(@user)
+%h2 Vytvorené udalosti
+= render partial: "expenses/mini_index", locals: { expenses: @user.created_expenses }

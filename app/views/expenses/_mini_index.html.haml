@@ -1,0 +1,13 @@
+- if expenses.blank?
+  Žiadne
+- else
+  %table
+    %tr
+      %th Dátum
+      %th Názov
+      %th
+    - expenses.each do |expense|
+      %tr.tleft
+        %td= expense.start_at
+        %td= expense.name
+        %td= link_to 'Zobraziť', expense
