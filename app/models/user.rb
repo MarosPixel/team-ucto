@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :created_expenses, class_name: 'Expense', foreign_key: :creator_id
   devise :database_authenticatable, :recoverable, :registerable, 
          :rememberable, :trackable, :validatable
-  acts_as_audited only: [:username, :email, :is_approved, :role]
+  #acts_as_audited only: [:username, :email, :is_approved, :role]
 
   # Accessible (or protected) attributes
   attr_accessible :username, :email, :password, :password_confirmation,
