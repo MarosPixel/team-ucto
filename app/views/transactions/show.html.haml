@@ -1,12 +1,16 @@
-%h1 Transactions#show
-%p Find me in app/views/transactions/show.html.haml
+%h1
+  %span.cseda Show
+  transaction
 
+%p
+  = link_to 'Back', :back
+
+%h2 Detail
 %table.show
   - @transaction.attributes.keys.each do |attribute|
     %tr
       %th= attribute.humanize
       %td= @transaction.attributes[attribute].to_s
 
-%p
-  = link_to 'Back', transactions_path
-     
+- unless @transaction.email_id.blank?
+  %p= link_to "Vygenerované z emailu #{@transaction.email_id} >>", @transaction.email
