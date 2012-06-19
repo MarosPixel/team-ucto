@@ -13,4 +13,25 @@ class Transaction < ActiveRecord::Base
   has_one :user_posting, dependent: :destroy
 
 
+  def assign
+    if variabilny_symbol.blank? or variabilny_symbol <= 0
+      self.state = :unresolved
+    else
+
+      user = User.find_by_vs(variabilny_symbol)
+      if user.blank?
+        self.state = :unresolved
+      else
+        UserPosting.create(
+          user_id: user.id,
+          transaction_id: id,
+          price: suma
+        )
+        self.state = :assigned
+      end
+
+    end
+    save
+  end
+
 end
