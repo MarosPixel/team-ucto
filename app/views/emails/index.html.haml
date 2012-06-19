@@ -1,6 +1,6 @@
 %h1 Mails
 
-- if @mails.blank?
+- if @emails.blank?
 
   Žiadne stiahnuté e-maily.
 
@@ -16,14 +16,14 @@
       %th Download date
       %th{colspan: 2}
 
-    - @mails.each do |mail|
+    - @emails.each do |email|
       %tr
-        %td= mail.id
-        %td= mail.imap_id
-        %td= mail.state
-        %td= mail.send_by
-        %td= mail.received_at
-        %td= mail.created_at
+        %td= email.id
+        %td= email.imap_id
+        %td= email.state
+        %td= email.send_by
+        %td= email.received_at
+        %td= email.created_at
         %td= link_to 'Show', email
         %td= link_to 'Delete', email, confirm: 'Are you sure?', method: :delete
 

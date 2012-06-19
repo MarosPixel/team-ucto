@@ -18,7 +18,7 @@
     - @transactions.each do |transaction|
       %tr
         %td= transaction.state
-        %td= transaction.mail_id.blank? ? 'no-mail' : link_to(transaction.mail_id, transaction.mail)
+        %td= transaction.email_id.blank? ? 'no-mail' : link_to(transaction.email_id, transaction.email)
         %td= transaction.datum_transakcie
         %td= transaction.suma
         %td= transaction.variabilny_symbol

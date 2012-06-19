@@ -4,7 +4,7 @@ class EmailsController < ApplicationController
 
   # GET /emails
   def index
-    @mails = Email.all
+    @emails = Email.all
 
     respond_to do |format|
       format.html # index.html.haml
@@ -13,7 +13,7 @@ class EmailsController < ApplicationController
 
   # GET /email/1
   def show
-    @mail = Email.find(params[:id])
+    @email = Email.find(params[:id])
 
     respond_to do |format|
       format.html # index.html.haml
@@ -25,7 +25,7 @@ class EmailsController < ApplicationController
     Email.find(params[:id]).destroy
 
     respond_to do |format|
-      format.html { redirect_to mails_url, notice: "Mail #{params[:id]} bol zmazaný." }
+      format.html { redirect_to emails_url, notice: "Mail #{params[:id]} bol zmazaný." }
     end
   end
 
@@ -34,7 +34,7 @@ class EmailsController < ApplicationController
     Email.destroy_all
 
     respond_to do |format|
-      format.html { redirect_to mails_url, notice: "Všetky maily boli zmazané." }
+      format.html { redirect_to emails_url, notice: "Všetky maily boli zmazané." }
     end
   end
 

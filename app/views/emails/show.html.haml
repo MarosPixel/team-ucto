@@ -5,40 +5,40 @@
 %table.show
   %tr
     %th Id:
-    %td= @mail.id
+    %td= @email.id
   %tr
     %th Imap id:
-    %td= @mail.imap_id
+    %td= @email.imap_id
   %tr
     %th Received at:
-    %td= @mail.received_at
+    %td= @email.received_at
   %tr
     %th Send by:
-    %td= @mail.send_by
+    %td= @email.send_by
   %tr
     %th State:
-    %td= @mail.state
+    %td= @email.state
   %tr
     %th Envelope:
-    %td= @mail.envelope
+    %td= @email.envelope
   %tr
     %th Content:
-    %td= @mail.content
+    %td= @email.content
   %tr
     %th Attachment:
-    %td= @mail.attachment
+    %td= @email.attachment
   %tr
     %th File name:
-    %td= @mail.file_name
+    %td= @email.file_name
   %tr
     %th Decoded attachment:
-    %td= @mail.decoded_attachment
+    %td= @email.decoded_attachment
   %tr
     %th Created at:
-    %td= @mail.created_at
+    %td= @email.created_at
   %tr
     %th Updated_at
-    %td= @mail.updated_at
+    %td= @email.updated_at
 
 %p
   = link_to 'Back', emails_path

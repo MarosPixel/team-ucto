@@ -8,7 +8,7 @@ class Transaction < ActiveRecord::Base
   # 5. fail         - vynimocny stav, pouziva sa na oznacenie chybneho zaznamu na upozornenie spravcu
   STATES = %w{ unprocessed assigned unresolved excluded fail }
 
-  belongs_to :email
+  belongs_to :email, dependent: :delete
   has_one :expense_posting, dependent: :destroy
   has_one :user_posting, dependent: :destroy
 

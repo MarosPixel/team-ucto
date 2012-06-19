@@ -14,35 +14,35 @@ class ProcessorController < ApplicationController
   def start
     do_download(true)
 
-    redirect_to mails_url, notice: "Finished."
+    redirect_to emails_url, notice: "Finished."
   end
 
   # GET /process/download
   def download
     count = do_download
 
-    redirect_to mails_url, notice: "Sťahovanie ukončené. Počet nových emailov: #{count}"
+    redirect_to emails_url, notice: "Sťahovanie ukončené. Počet nových emailov: #{count}"
   end
 
   # GET /process/decode
   def decode
     do_decode
 
-    redirect_to mails_url, notice: "Decoded."
+    redirect_to emails_url, notice: "Decoded."
   end
 
   # GET /process/decode
   def extract
     do_extract
 
-    redirect_to mails_url, notice: "Extracted."
+    redirect_to emails_url, notice: "Extracted."
   end
 
   # GET /process/assign
   def assign
     do_assign
 
-    redirect_to mails_url, notice: "Assigned."
+    redirect_to emails_url, notice: "Assigned."
   end
 
 
