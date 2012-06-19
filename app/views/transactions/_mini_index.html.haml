@@ -1,0 +1,17 @@
+-if transactions.blank?
+  Žiadny
+- else
+  %table
+    %tr
+      %th Id
+      %th Stav
+      %th Dátum transakcie
+      %th Suma
+      %th
+    - transactions.each do |transaction|
+      %tr.tleft
+        %td= transaction.id
+        %td= transaction.state
+        %td= transaction.datum_transakcie
+        %td= transaction.suma
+        %td= link_to 'Zobraziť', transaction

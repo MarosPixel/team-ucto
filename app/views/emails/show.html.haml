@@ -1,7 +1,11 @@
 %h1
   %span.cseda Show
-  mail
+  email
 
+%p
+  = link_to 'Back', :back
+
+%h2 Detail
 %table.show
   %tr
     %th Id:
@@ -40,5 +44,5 @@
     %th Updated_at
     %td= @email.updated_at
 
-%p
-  = link_to 'Back', emails_path
+%h2 Vygenerované transakcie
+= render partial: "transactions/mini_index", locals: { transactions: @email.transactions }
