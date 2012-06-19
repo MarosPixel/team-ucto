@@ -34,7 +34,7 @@
     %td= @expense.player_fee
   %tr
     %th Creator:
-    %td= link_to @expense.creator.username, user_path(@expense.creator)
+    %td= can?(:read, User) ? link_to(@expense.creator.username, user_path(@expense.creator)) : @expense.creator.username
   %tr
     %th Created at:
     %td= @expense.created_at

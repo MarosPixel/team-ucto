@@ -32,7 +32,7 @@
   - @users.each do |user|
     %tr{ class: "#{'me' if user == current_user}" }
       %td.username
-        = link_to user.username, user
+        = can?(:read, User) ? link_to(user.username, user) : user.username
       - @expenses.each do |expense|
         - b = expense.users.find_by_id(user.id).nil?
         - l = expense.locked?
