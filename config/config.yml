@@ -12,6 +12,3 @@ processors:
 
   # Nazov triedy spracovavajucej transakcie
   extract: SlspHbExtractProcessor
-
-# Spracovavaju sa iba maily dorucene od
-sender_email: dopaze@gmail.com

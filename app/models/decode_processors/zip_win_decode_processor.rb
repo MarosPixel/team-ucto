@@ -4,7 +4,7 @@ class ZipWinDecodeProcessor < DecodeProcessor
 
   # settings
   TMP_DIR = 'team_ucto'
-  ZIP_PASS = 'secret_pass'
+  ZIP_PASS = AppSettings::zip_pass
   UNZIP_PATH = 'M:\\devkit\\bin\\unzip.exe'
 
   def self.decode_one(mail)

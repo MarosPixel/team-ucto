@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120619134408) do
+ActiveRecord::Schema.define(:version => 20120619210808) do
+
+  create_table "app_settings", :force => true do |t|
+    t.string   "sender_mail", :default => ""
+    t.string   "zip_pass",    :default => ""
+    t.string   "imap_host",   :default => "imap.gmail.com"
+    t.integer  "imap_port",   :default => 993
+    t.boolean  "imap_ssl",    :default => true
+    t.string   "imap_name",   :default => ""
+    t.string   "imap_pass",   :default => ""
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"

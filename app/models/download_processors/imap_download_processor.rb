@@ -3,11 +3,14 @@ require 'net/imap'
 class ImapDownloadProcessor < DownloadProcessor
 
   # imap settings
-  IMAP_IMAP = 'imap.gmail.com'
-  IMAP_PORT = 993
-  IMAP_SSL  = true
-  IMAP_NAME = 'ww784501@gmail.com'
-  IMAP_PASS = 'ww7845013'
+  IMAP_IMAP = AppSettings::imap_host
+  IMAP_PORT = AppSettings::imap_port
+  IMAP_SSL  = AppSettings::imap_ssl
+  IMAP_NAME = AppSettings::imap_name
+  IMAP_PASS = AppSettings::imap_pass
+
+  # spracovavame iba maily poslane z adresy
+  SENDER_MAIL = AppSettings::sender_mail
 
   public
 
@@ -22,7 +25,7 @@ class ImapDownloadProcessor < DownloadProcessor
       # vyberat spravy iba od sendera = SENDER_MAIL a
       # ktorych cas dorucenia je vacsii ako mam najvyssie ulozene v db
       imap.select('INBOX')
-      imap.search(['FROM', APP_CONFIG['sender_email'], 'SINCE', max_receive_date]).each do |msg_id|
+      imap.search(['FROM', SENDER_MAIL, 'SINCE', max_receive_date]).each do |msg_id|
         data = imap.fetch(msg_id, ['ENVELOPE', 'UID', 'BODY', 'BODY[2]'])[0]
 
         uid = data.attr['UID']

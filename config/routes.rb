@@ -37,6 +37,9 @@ TeamUcto::Application.routes.draw do
   get '/process/extract'   => 'processor#extract'
   get '/process/assign'    => 'processor#assign'
 
+  get '/settings' => 'app_settings#index'
+  put '/settings' => 'app_settings#update'
+
   get '/test' => 'test#index'
 
 end

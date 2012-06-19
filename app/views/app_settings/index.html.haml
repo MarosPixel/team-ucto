@@ -1,0 +1,19 @@
+%h1 Nastavenia aplikácie
+
+= simple_form_for @app_settings, url: settings_path do |f|
+  = f.error_notification
+
+  .inputs
+    %p
+      = f.input :sender_mail
+      = f.input :zip_pass
+    %h2 Nastavenia pre IMAP
+    %p
+      = f.input :imap_host
+      = f.input :imap_port
+      = f.input :imap_ssl
+      = f.input :imap_name
+      = f.input :imap_pass
+
+  .actions
+    = f.button :submit, value: 'Uložiť', class: 'blue'

@@ -3,7 +3,7 @@ class ZipUnixDecodeProcessor < DecodeProcessor
   # na rozbalovanie je potrebna kniznica libzip
 
   # settings
-  ZIP_PASS = 'secret_pass'
+  ZIP_PASS = AppSettings::zip_pass
 
   def self.decode_one(mail)
     binattachment = mail.attachment.unpack('m')[0]
