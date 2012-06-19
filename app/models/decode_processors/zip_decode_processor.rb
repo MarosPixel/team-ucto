@@ -11,9 +11,9 @@ class ZipDecodeProcessor < DecodeProcessor
   UNZIP_PATH = 'M:\\devkit\\bin\\unzip.exe'
 
   def self.decode_all
-    mails = Mail.find_all_by_state(Mail::STATES[0])
+    mails = Mail.find_all_by_state(:saved)
 
-    if mails.nil?
+    if mails.blank?
       # "Ziadne maily na spracovanie"
     else
 
@@ -43,8 +43,8 @@ class ZipDecodeProcessor < DecodeProcessor
         files = Dir.glob("#{dir_path}/*.txt")
 
         mail.file_name = File.basename(files[0])
-        mail.decoded_attachment = File.open(files[0]).to_a[0]
-        mail.state = Mail::STATES[1]
+        mail.decoded_attachment = File.open(files[0]).to_a.join
+        mail.state = :decoded
         mail.save
       end
 

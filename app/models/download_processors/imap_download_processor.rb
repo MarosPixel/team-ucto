@@ -38,7 +38,7 @@ class ImapDownloadProcessor < DownloadProcessor
             envelope:   data.attr['ENVELOPE'],
             content:    data.attr['BODY'],
             attachment: data.attr['BODY[2]'],
-            state:      Mail::STATES[0]
+            state:      :saved
           )
           mail_count += 1
         end
