@@ -9,9 +9,6 @@ class ImapDownloadProcessor < DownloadProcessor
   IMAP_NAME = 'ww784501@gmail.com'
   IMAP_PASS = 'ww7845013'
 
-  # spracovavame iba maily poslane z adresy
-  SENDER_MAIL = 'dopaze@gmail.com'
-
   public
 
     def self.download_all
@@ -25,7 +22,7 @@ class ImapDownloadProcessor < DownloadProcessor
       # vyberat spravy iba od sendera = SENDER_MAIL a
       # ktorych cas dorucenia je vacsii ako mam najvyssie ulozene v db
       imap.select('INBOX')
-      imap.search(['FROM', SENDER_MAIL, 'SINCE', max_receive_date]).each do |msg_id|
+      imap.search(['FROM', APP_CONFIG['sender_email'], 'SINCE', max_receive_date]).each do |msg_id|
         data = imap.fetch(msg_id, ['ENVELOPE', 'UID', 'BODY', 'BODY[2]'])[0]
 
         uid = data.attr['UID']
