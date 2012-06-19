@@ -10,7 +10,7 @@ gem 'simple_form'
 gem 'acts_as_audited', '2.0.0'
 gem 'will_paginate', '~> 3.0'
 # gem 'rubyzip' # nevie otvarat zaheslovane zipy
-#gem 'zipruby' # nesiel nainstalovat pre windows
+gem 'zipruby' # nesiel nainstalovat pre windows
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
@@ -19,7 +19,7 @@ group :assets do
   # gem 'bourbon'
   # gem 'compass-rails'
 
-  #gem 'therubyracer'
+  gem 'therubyracer'
 end
 
 group :production do
@@ -40,7 +40,7 @@ end
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-#gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
