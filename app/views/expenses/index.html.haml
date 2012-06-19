@@ -28,4 +28,4 @@
       - if can? :update, expense
         %td= link_to 'Edit', [:edit, expense]
       - if can? :destroy, expense
-        %td= link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete
+        %td= link_to 'Destroy', expense, data: { confirm: 'Are you sure?' }, method: :delete
