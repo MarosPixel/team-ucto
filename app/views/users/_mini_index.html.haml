@@ -1,0 +1,11 @@
+-if users.blank?
+  Žiadny
+- else
+  %table
+    %tr
+      %th Meno
+      %th
+    - users.each do |user|
+      %tr.tleft
+        %td= user.username.capitalize
+        %td= link_to 'Zobraziť', user

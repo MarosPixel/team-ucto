@@ -2,6 +2,11 @@
   %span.cseda Show
   = @expense.name
 
+%p
+  = link_to 'Back', :back
+  \|
+  = link_to 'Edit', [:edit, @expense]
+%h2 Detaily
 %table.show
   %tr
     %th Id:
@@ -43,8 +48,5 @@
     %th Description:
     %td= @expense.description
 
-%p
-  = link_to 'Back', expenses_path
-  \|
-  = link_to 'Edit', [:edit, @expense]
-
+%h2 Prihlásení používatelia
+= render partial: "users/mini_index", locals: { users: @expense.users }
