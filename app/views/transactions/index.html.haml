@@ -8,6 +8,7 @@
 
   %table
     %tr
+      %th state
       %th email
       %th datum_transakcie
       %th suma
@@ -16,7 +17,8 @@
       %th{colspan: 2}
     - @transactions.each do |transaction|
       %tr
-        %td= transaction.email_id
+        %td= transaction.state
+        %td= transaction.mail_id.blank? ? 'no-mail' : link_to(transaction.mail_id, transaction.mail)
         %td= transaction.datum_transakcie
         %td= transaction.suma
         %td= transaction.variabilny_symbol

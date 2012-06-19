@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617112024) do
+ActiveRecord::Schema.define(:version => 20120618210103) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(:version => 20120617112024) do
   add_index "postings", ["user_id"], :name => "index_postings_on_user_id"
 
   create_table "transactions", :force => true do |t|
-    t.integer  "email_id"
+    t.integer  "mail_id"
     t.string   "datum_transakcie",        :limit => 10
     t.string   "predcislo_uctu",          :limit => 6
     t.string   "cislo_uctu",              :limit => 10
@@ -106,11 +106,12 @@ ActiveRecord::Schema.define(:version => 20120617112024) do
     t.text     "identifikacia_protiuctu"
     t.text     "sprava_pre_prijemcu"
     t.text     "unparsed_transaction"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
+    t.string   "state",                                 :default => "fail"
   end
 
-  add_index "transactions", ["email_id"], :name => "index_transactions_on_email_id"
+  add_index "transactions", ["mail_id"], :name => "index_transactions_on_email_id"
 
   create_table "users", :force => true do |t|
     t.integer  "vs"
