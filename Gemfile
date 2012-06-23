@@ -18,7 +18,6 @@ group :assets do
   gem 'closure-compiler' # gem 'uglifier', '>= 1.2.4'
   # gem 'bourbon'
   # gem 'compass-rails'
-  gem 'twitter-bootstrap-rails'
 
   gem 'therubyracer'
 end
