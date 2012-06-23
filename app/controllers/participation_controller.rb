@@ -20,13 +20,11 @@ class ParticipationController < ApplicationController
   # POST /participation/1/2.json
   def add
     @participation = ParticipationPosting.new(expense_id: params[:eid], user_id: params[:uid])
-    
+
     begin
-      authorize! :add, @participation
-
-      User.find(params[:uid]).expenses  << Expense.find(params[:eid])
-
-      nastav_cenu(params[:eid], params[:uid])
+      authorize! :participate, @participation
+      User.find(params[:uid]).expenses << Expense.find(params[:eid])
+      nastav_cenu(params[:eid], params[:uid], true)
 
       respond_to do |format|
         format.html { redirect_to participations_url }
@@ -46,10 +44,8 @@ class ParticipationController < ApplicationController
     @participation = ParticipationPosting.where(expense_id: params[:eid], user_id: params[:uid]).first
 
     begin
-      authorize! :delete, @participation
-
+      authorize! :participate, @participation
       User.find(params[:uid]).expenses.delete(Expense.find(params[:eid]))
-
       nastav_cenu(params[:eid], params[:uid], false)
 
       respond_to do |format|
@@ -84,17 +80,20 @@ class ParticipationController < ApplicationController
       groups
     end
 
-    def nastav_cenu(expense_id, user_id, is_update = true)
+    def nastav_cenu(expense_id, user_id, is_add = true)
       expense = Expense.find(expense_id)
+
       if expense.type == 'Training'
         # pri treningu je v "player_fee" cena pre jedneho hraca
-        ParticipationPosting.where(expense_id: expense_id, user_id: user_id).first.update_attributes(price: -expense.player_fee) if is_update
+        ParticipationPosting.where(expense_id: expense_id, user_id: user_id).first.update_attributes(price: -expense.player_fee) if is_add
       else # 'Tournament' a 'OtherExpense'
-        # pri ostatnych udalostiach sa cena pre jedneho hraca vyrata ako 
-        # "player_fee za kazdeho + team_fee na pocet_hracov"
-        price = expense.player_fee + (expense.team_fee / expense.users.count)
-        # cenu treba zmenit vsetkym participujucim pouzivatelom
-        ParticipationPosting.where(expense_id: expense_id).update_all(price: -price)
+        if is_add
+          # pri ostatnych udalostiach sa cena pre jedneho hraca vyrata ako
+          # "player_fee za kazdeho + team_fee na pocet_hracov"
+          price = expense.player_fee + (expense.team_fee / expense.users.count)
+          # cenu treba zmenit vsetkym participujucim pouzivatelom
+          ParticipationPosting.where(expense_id: expense_id).update_all(price: -price)
+        end
         # cenu treba upravit aj danemu postingu expensu, lebo je zavisla od poctu prihlasenych hracov
         price = expense.team_fee + (expense.player_fee * expense.users.count)
         ExpensePosting.where(expense_id: expense_id).first.update_attributes(price: -price)
