@@ -7,3 +7,4 @@ tmp/
 _podklady/
 .vagrant
 package.box
+public/**
