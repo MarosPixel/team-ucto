@@ -51,8 +51,8 @@ module TeamUcto
     config.assets.version = '0.1'
 
     # Heroku hack
-    #config.assets.initialize_on_precompile = false
-    #config.assets.compile = false
+    config.assets.initialize_on_precompile = true
+    config.assets.compile = true
 
     #config.generators.stylesheet_engine = :sass
     #config.sass.preferred_syntax = :sass
