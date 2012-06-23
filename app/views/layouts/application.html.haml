@@ -22,6 +22,7 @@
               = link_to_s 'Účasti', participations_path, 'participation'
               - if can? :index, User
                 = link_to_s 'Používatelia', users_path, 'users'
+              = link_to_s 'Moje výdavky', my_postings_path, 'postings', 'my'
               - if can? :read_team, Posting
                 = link_to_s 'Tímove výdavky', team_postings_path, 'postings', 'team'
               - if can? :read_all, Posting
@@ -35,7 +36,6 @@
 
             .fright
               %b= current_user.username
-              = link_to_s 'Moje výdavky', my_postings_path, 'postings', 'my'
               = link_to_s 'Môj profil', edit_user_registration_path, 'devise/registrations', 'edit'
               - if can? :read, AppSettings
                 = link_to_s 'Nastavenia', settings_path, 'app_settings'
