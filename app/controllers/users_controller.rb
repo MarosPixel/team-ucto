@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class UsersController < ApplicationController
   before_filter :set_user, except: :index
   authorize_resource
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Používateľ bol úspešne zmenený.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

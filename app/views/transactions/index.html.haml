@@ -1,4 +1,4 @@
-%h1 Transactions
+%h1 Transakcie
 
 %p= @contents
 
@@ -6,26 +6,28 @@
   %p Žiadne vytvorené transakcie.
 -else
 
-  %table
+  %table.tleft
     %tr
-      %th state
-      %th email
-      %th datum_transakcie
-      %th suma
-      %th vs
-      %th created_at
+      %th #
+      %th Stav
+      %th Email
+      %th Dátum platby
+      %th Suma
+      %th VS
+      %th Dátum vytvorenia
       %th{colspan: 2}
     - @transactions.each do |transaction|
       %tr
+        %td= transaction.id
         %td= transaction.state
         %td= transaction.email_id.blank? ? 'no-mail' : link_to(transaction.email_id, transaction.email)
         %td= transaction.datum_transakcie
         %td= transaction.suma
         %td= transaction.variabilny_symbol
         %td= transaction.created_at
-        %td= link_to 'show', transaction_path(transaction)
+        %td= link_to 'Zobraziť', transaction_path(transaction)
         - if can? :destroy, transaction
-          %td= link_to 'delete', transaction, data: { confirm: 'Are you sure?' }, method: :delete
+          %td= link_to 'Zmazať', transaction, data: { confirm: 'Ste si istý' }, method: :delete
 
   - if can? :destroy_all, Transaction
-    %p= link_to 'Delete all', transactions_path, data: { confirm: 'Are you sure?' }, method: :delete
+    %p= link_to 'Zmazať všetky', transactions_path, data: { confirm: 'Ste si istý' }, method: :delete

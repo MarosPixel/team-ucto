@@ -1,11 +1,11 @@
 %h1
-  %span.cseda Show
-  transaction
+  %span.cseda Detail
+  transakcie číslo
+  = @transaction.id
 
 %p
-  = link_to 'Back', :back
+  = link_to 'Späť', :back
 
-%h2 Detail
 %table.show
   - @transaction.attributes.keys.each do |attribute|
     %tr

@@ -1,26 +1,26 @@
-%h1 Users
+%h1 Používatelia
 
 %p
-  = link_to "All Users", action: :index
+  = link_to "Všetci používatelia", action: :index
   |
-  = link_to "Users awaiting approval", action: :index, approved: "false"
+  = link_to "Používatelia čakajúci na schválenie", action: :index, approved: "false"
 
-%table
+%table.tleft
   %tr
-    %th Id
+    %th #
     %th VS
-    %th Approved
-    %th Name
+    %th Schválený
+    %th Meno
     %th Email
-    %th Role
+    %th Skupina
     %th{colspan: 2}
   - @users.each do |user|
     %tr
       %td= user.id
       %td= user.vs
-      %td= user.is_approved
+      %td= user.is_approved ? 'áno' : 'nie'
       %td= user.username
       %td= user.email
       %td= user.role
-      %td= link_to "Show", user_path(user)
-      %td= link_to "Edit", edit_user_path(user)
+      %td= link_to "Detail", user_path(user)
+      %td= link_to "Upraviť", edit_user_path(user)

@@ -6,12 +6,12 @@
     = f.error_notification
 
     .inputs
-      = f.input :username, required: true, placeholder: 'Username'
+      = f.input :username, required: true, placeholder: 'Meno'
       = f.input :email, required: true, placeholder: 'Email'
-      = f.input :password, required: true, placeholder: 'Password'
-      = f.input :password_confirmation, required: true, placeholder: 'Password confirmation'
+      = f.input :password, required: true, placeholder: 'Heslo'
+      = f.input :password_confirmation, required: true, placeholder: 'Potvrdenie hesla'
 
     .actions
-      = f.button :submit, "Sign up", class: 'blue'
+      = f.button :submit, "Zaregistrovať sa", class: 'blue'
 
   = render partial: "devise/shared/links"

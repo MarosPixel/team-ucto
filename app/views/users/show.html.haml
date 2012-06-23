@@ -1,52 +1,52 @@
 %h1
-  %span.cseda Show
+  %span.cseda Detail
+  používateľa
   = @user.username
 
 %p
-  = link_to 'Back', :back
+  = link_to 'Späť', :back
   \|
-  = link_to 'Edit', edit_user_path(@user)
+  = link_to 'Upraviť detail', edit_user_path(@user)
 
-%h2 Detaily
 %table.show
   %tr
-    %th.tleft Id:
+    %th Id:
     %td= @user.id
   %tr
-    %th.tleft VS:
+    %th VS:
     %td= @user.vs
   %tr
-    %th.tleft Name:
+    %th Meno:
     %td= @user.username
   %tr
-    %th.tleft Email:
+    %th Email:
     %td= @user.email
   %tr
-    %th.tleft Role:
-    %td= @user.role
+    %th Skupina:
+    %td= @user.role.capitalize
   %tr
-    %th.tleft Approved:
-    %td= @user.is_approved
+    %th Schválený:
+    %td= @user.is_approved ? 'áno' : 'nie'
   %tr
-    %th.tleft Sign in count:
+    %th Počet prihlásení:
     %td= @user.sign_in_count
   %tr
-    %th.tleft Current sign in at:
+    %th Current sign in at:
     %td= @user.current_sign_in_at
   %tr
-    %th.tleft Last sign in at
+    %th Last sign in at:
     %td= @user.last_sign_in_at
   %tr
-    %th.tleft Current sign in IP
+    %th Current sign in IP:
     %td= @user.current_sign_in_ip
   %tr
-    %th.tleft Last sign in IP
+    %th Last sign in IP:
     %td= @user.last_sign_in_ip
   %tr
-    %th.tleft Created at
+    %th Dátum vytvorenia:
     %td= @user.created_at
   %tr
-    %th.tleft Updated at
+    %th Dátum zmeny:
     %td= @user.updated_at
 
 %h2 Prihlásený na udalosti

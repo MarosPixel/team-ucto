@@ -1,11 +1,10 @@
 %h1
-  %span.cseda Show
-  email
+  %span.cseda Detail
+  emailu číslo #{@email.id}
 
 %p
-  = link_to 'Back', :back
+  = link_to 'Späť', :back
 
-%h2 Detail
 %table.show
   %tr
     %th Id:
@@ -14,34 +13,34 @@
     %th Imap id:
     %td= @email.imap_id
   %tr
-    %th Received at:
+    %th Dátum doručenia:
     %td= @email.received_at
   %tr
-    %th Send by:
+    %th Poslané od:
     %td= @email.send_by
   %tr
-    %th State:
+    %th Stav:
     %td= @email.state
   %tr
-    %th Envelope:
+    %th Obálka emailu:
     %td= @email.envelope
   %tr
-    %th Content:
+    %th Obsah emailu:
     %td= @email.content
   %tr
-    %th Attachment:
+    %th Príloha emailu:
     %td= @email.attachment
   %tr
-    %th File name:
+    %th Meno súboru:
     %td= @email.file_name
   %tr
-    %th Decoded attachment:
+    %th Rozkódovaná príloha:
     %td= @email.decoded_attachment
   %tr
-    %th Created at:
+    %th Dátum vytvorenia:
     %td= @email.created_at
   %tr
-    %th Updated_at
+    %th Dátum zmeny:
     %td= @email.updated_at
 
 %h2 Vygenerované transakcie

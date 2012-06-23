@@ -1,6 +1,17 @@
 # Slovak translations for Ruby on Rails
 
 sk:
+
+    'true': 'áno'
+    'false': 'nie'
+
+    training: 'tréning'
+    Training: 'Tréning'
+    tournament: 'turnaj'
+    Tournament: 'Turnaj'
+    other expense: 'iný výdavok'
+    OtherExpense: 'Iný výdavok'
+
     # Date
     date:
         formats:

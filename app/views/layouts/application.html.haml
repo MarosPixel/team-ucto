@@ -17,7 +17,7 @@
           #top-menu
             .fleft
               -# logo
-              = link_to_s 'Home', root_path, 'home'
+              = link_to_s 'Úvod', root_path, 'home'
               = link_to_s 'Udalosti', expenses_path, 'expenses'
               = link_to_s 'Účasti', participations_path, 'participation'
               - if can? :index, User
@@ -29,9 +29,9 @@
               - if can? :index, Transaction
                 = link_to_s 'Transakcie', transactions_path, 'transactions'
               - if can? :index, Email
-                = link_to_s 'Mails', emails_path, 'emails'
+                = link_to_s 'Emaily', emails_path, 'emails'
               - if can? :index, Audit
-                = link_to_s 'Audits', audits_path, 'audits'
+                = link_to_s 'Audity', audits_path, 'audits'
 
             .fright
               %b= current_user.username
@@ -50,10 +50,8 @@
 
     #content
 
-      - unless alert.blank?
-        %p#alert= alert
-      - unless notice.blank?
-        %p#notice= notice
+      %p#alert= alert
+      %p#notice= notice
 
       = yield
 
@@ -61,7 +59,7 @@
       #footer
         - if user_signed_in?
           .tcenter
-            = link_to_s 'Home', root_path, 'home'
+            = link_to_s 'Úvod', root_path, 'home'
             |
             = link_to_s 'Udalosti', expenses_path, 'expenses'
             |
@@ -69,7 +67,7 @@
             |
             = link_to_s 'Moje výdavky', my_postings_path, 'postings', 'my'
             |
-            = link_to 'Top', '#'
+            = link_to 'Prejsť hore', '#'
 
         .tcenter
           &copy;2012 team-ucto

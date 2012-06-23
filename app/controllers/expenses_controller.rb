@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class ExpensesController < ApplicationController
   before_filter :set_expense, only: [ :show, :edit, :update, :destroy ]
   authorize_resource
@@ -48,7 +50,7 @@ class ExpensesController < ApplicationController
 
     respond_to do |format|
       if @expense.save and @expense.create_expense_posting(price: @expense.calc_expense_posting_price)
-        format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
+        format.html { redirect_to @expense, notice: 'Udalosť bola úspešne vytvorená.' }
         format.json { render json: @expense, status: :created, location: @expense }
       else
         format.html { render action: "new" }
@@ -63,7 +65,7 @@ class ExpensesController < ApplicationController
     respond_to do |format|
       if @expense.update_attributes(params[get_type])
         update_paps
-        format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
+        format.html { redirect_to @expense, notice: 'Udalosť bola úspešne zmenená.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

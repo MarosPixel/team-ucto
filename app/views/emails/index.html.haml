@@ -1,4 +1,4 @@
-%h1 Mails
+%h1 Emaily
 
 - if @emails.blank?
 
@@ -6,14 +6,14 @@
 
 - else
 
-  %table
+  %table.tleft
     %tr
-      %th Id
+      %th #
       %th Imap id
-      %th State
-      %th Send by
-      %th Received date
-      %th Download date
+      %th Stav
+      %th Poslané od
+      %th Dátum doručenia
+      %th Dátum stiahnutia
       %th{colspan: 2}
 
     - @emails.each do |email|
@@ -24,19 +24,19 @@
         %td= email.send_by
         %td= email.received_at
         %td= email.created_at
-        %td= link_to 'Show', email
-        %td= link_to 'Delete', email, data: { confirm: 'Are you sure?' }, method: :delete
+        %td= link_to 'Detail', email
+        %td= link_to 'Zmazať', email, data: { confirm: 'Ste si istý?' }, method: :delete
 
 %p
-  = link_to 'Delete all', emails_path, data: { confirm: 'Are you sure?' }, method: :delete
+  = link_to 'Zmazať všetky emaily', emails_path, data: { confirm: 'Ste si istý?' }, method: :delete
 %p
-  = link_to 'Download Mails', process_download_path
+  = link_to 'Stiahnuť emaily', process_download_path
   |
-  = link_to 'Decode Attachments', process_decode_path
+  = link_to 'Dekódovať prílohy', process_decode_path
   |
-  = link_to 'Extract Transactions', process_extract_path
+  = link_to 'Extrahovať transakcie', process_extract_path
   |
-  = link_to 'Assign Transactions', process_assign_path
+  = link_to 'Priradiť transakcie', process_assign_path
 
 %p
-  = link_to 'Start Process', process_start_path
+  = link_to 'Spustiť proces', process_start_path

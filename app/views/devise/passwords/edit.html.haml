@@ -9,10 +9,10 @@
     = f.full_error :reset_password_token
 
     .inputs
-      = f.input :password, label: "New password", required: true
-      = f.input :password_confirmation, label: "Confirm your new password", required: true
+      = f.input :password, label: "Nové heslo", required: true
+      = f.input :password_confirmation, label: "Potvrdiť nové heslo", required: true
 
     .actions
-      = f.button :submit, "Change my password", class: 'blue'
+      = f.button :submit, "Zmeniť heslo", class: 'blue'
 
   = render partial: "devise/shared/links"

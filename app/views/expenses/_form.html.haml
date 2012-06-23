@@ -2,10 +2,10 @@
   = f.error_notification
     
   .inputs
-    = f.input :name
+    = f.input :name, label: "Názov"
     = render partial: "#{@expense.type.underscore}_form", locals: { f: f }
-    = f.input :locked_at#, as: 'string', input_html: { class: 'datepicker_locked_at' }, placeholder: '1.1.2030', hint: 'Dátum od ktorého je prihlasovanie na akciu uzamknuté.'
-    = f.input :description, input_html: { cols: 38, rows: 8 }
+    = f.input :locked_at, label: 'Uzamknuté od',  hint: 'Dátum od ktorého je prihlasovanie na akciu uzamknuté'
+    = f.input :description, label: 'Popis', input_html: { cols: 38, rows: 8 }
 
   .actions
-    = f.button :submit, class: 'blue'
+    = f.button :submit, value: 'Uložiť', class: 'blue'

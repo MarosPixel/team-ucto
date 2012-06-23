@@ -1,31 +1,30 @@
-%h1 Listing expenses
-
+%h1 Výpis udalostí
 %p
-  = link_to 'Add Tournament', [:new, :tournament]
+  = link_to 'Pridať turnaj', [:new, :tournament]
   |
-  = link_to 'Add Training', [:new, :training]
+  = link_to 'Pridať tréning', [:new, :training]
   |
-  = link_to 'Add Other expense', [:new, :other_expense]
+  = link_to 'Pridať iný výdavok', [:new, :other_expense]
 
-%table
+%table.tleft
   %tr
-    %th Id
-    %th Locked
-    %th Type
-    %th Name
-    %th User
+    %th #
+    %th Uzamknutá
+    %th Typ
+    %th Meno
+    %th Používateľ
     %th{colspan: 3}
 
 
   - @expenses.each do |expense|
     %tr
       %td= expense.id
-      %td= expense.locked?
-      %td= expense.type
+      %td= expense.locked? ? 'Áno' : 'Nie'
+      %td= t expense.type
       %td= expense.name
       %td= expense.creator.username
-      %td= link_to 'Show', expense
+      %td= link_to 'Detail', expense
       - if can? :update, expense
-        %td= link_to 'Edit', [:edit, expense]
+        %td= link_to 'Upraviť', [:edit, expense]
       - if can? :destroy, expense
-        %td= link_to 'Destroy', expense, data: { confirm: 'Are you sure?' }, method: :delete
+        %td= link_to 'Zmazať', expense, data: { confirm: 'Ste si istý?' }, method: :delete

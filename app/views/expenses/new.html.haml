@@ -1,8 +1,8 @@
 %h1
-  %span.cseda New
+  %span.cseda Nová
   = @expense.type.underscore.humanize
 
-= render 'form'
-
 %p
-  = link_to 'Back', expenses_path
+  = link_to 'Späť', expenses_path
+
+= render 'form'

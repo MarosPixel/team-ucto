@@ -1,10 +1,10 @@
 %h1
-  %span.cseda Editing
-  = @expense.type.underscore.humanize
-
-= render 'form'
+  %span.cseda Úprava
+  = t @expense.name
 
 %p
-  = link_to 'Back', expenses_path
+  = link_to 'Späť', expenses_path
   \|
-  = link_to 'Show', @expense
+  = link_to 'Zobraziť detail', @expense
+
+= render 'form'

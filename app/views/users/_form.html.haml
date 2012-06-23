@@ -2,11 +2,11 @@
   = f.error_notification
   
   .inputs
-    = f.input :username
-    = f.input :email
-    = f.input :role, collection: User::ROLES, include_blank: false
-    = f.input :is_approved
+    = f.input :username, label: 'Meno'
+    = f.input :email, label: 'Email'
+    = f.input :role, label: 'Skupina', collection: User::ROLES, include_blank: false
+    = f.input :is_approved, label: 'Schválený'
 
   .actions
-    = f.button :submit, class: 'blue'
+    = f.button :submit, value: 'Uložiť', class: 'blue'
     

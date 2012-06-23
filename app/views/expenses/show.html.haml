@@ -1,51 +1,46 @@
 %h1
-  %span.cseda Show
+  %span.cseda Detail
   = @expense.name
 
 %p
-  = link_to 'Back', :back
+  = link_to 'Späť', :back
   \|
-  = link_to 'Edit', [:edit, @expense]
+  = link_to 'Upraviť', [:edit, @expense]
+
 %h2 Detaily
 %table.show
-  %tr
+  -# %tr
     %th Id:
     %td= @expense.id
   %tr
-    %th Type:
+    %th Typ:
     %td= @expense.type
   %tr
-    %th Name:
+    %th Názov:
     %td= @expense.name
   %tr
-    %th Start at:
+    %th Dátum začiatku:
     %td= @expense.start_at
   %tr
-    %th End at:
+    %th Dátum ukončenia:
     %td= @expense.start_at
   %tr
-    %th Total price:
+    %th Celková cena:
     %td= @expense.total_price
   %tr
-    %th Team fee:
+    %th Tímový poplatok:
     %td= @expense.team_fee
   %tr
-    %th Player fee:
+    %th Hráčsky poplatok:
     %td= @expense.player_fee
   %tr
-    %th Creator:
+    %th Vytvoril:
     %td= can?(:read, User) ? link_to(@expense.creator.username, user_path(@expense.creator)) : @expense.creator.username
   %tr
-    %th Created at:
-    %td= @expense.created_at
-  %tr
-    %th Updated_at
-    %td= @expense.updated_at
-  %tr
-    %th Locked at:
+    %th Uzamknutá od:
     %td= @expense.locked_at
   %tr
-    %th Description:
+    %th Popis:
     %td= @expense.description
 
 %h2 Prihlásení používatelia
