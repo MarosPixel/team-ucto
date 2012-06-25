@@ -12,6 +12,21 @@ sk:
     other expense: 'iný výdavok'
     OtherExpense: 'Iný výdavok'
 
+    transaction:
+      unprocessed:  'nespracovaná'
+      assigned:     'priradená'
+      unresolved:   'nepriradená'
+      excluded:     'vyňatá'
+      fail:         'chybná'
+
+    email:
+      saved:      'uložený'
+      decoded:    'dekódovaný'
+      extracted:  'extrahovaný'
+      assigned:   'priradený'
+      excluded:   'vyňatý'
+      fail:       'chybný'
+
     # Date
     date:
         formats:

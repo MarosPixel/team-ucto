@@ -19,13 +19,13 @@
     - @transactions.each do |transaction|
       %tr
         %td= transaction.id
-        %td= transaction.state
-        %td= transaction.email_id.blank? ? 'no-mail' : link_to(transaction.email_id, transaction.email)
-        %td= transaction.datum_transakcie
-        %td= transaction.suma
-        %td= transaction.variabilny_symbol
+        %td= highlight_state transaction
+        %td.tcenter= transaction.email_id.blank? ? 'no-mail' : link_to(transaction.email_id, transaction.email)
+        %td.tcenter= transaction.datum_transakcie
+        %td.tright= number_to_currency transaction.suma
+        %td.tright= transaction.variabilny_symbol
         %td= transaction.created_at
-        %td= link_to 'Zobraziť', transaction_path(transaction)
+        %td= link_to 'Zobraziť', transaction
         - if can? :destroy, transaction
           %td= link_to 'Zmazať', transaction, data: { confirm: 'Ste si istý' }, method: :delete
 

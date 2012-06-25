@@ -9,8 +9,8 @@
   %table.tleft
     %tr
       %th #
-      %th Imap id
       %th Stav
+      %th Imap id
       %th Poslané od
       %th Dátum doručenia
       %th Dátum stiahnutia
@@ -19,16 +19,14 @@
     - @emails.each do |email|
       %tr
         %td= email.id
-        %td= email.imap_id
-        %td= email.state
+        %td= highlight_state email
+        %td.tcenter= email.imap_id
         %td= email.send_by
         %td= email.received_at
         %td= email.created_at
         %td= link_to 'Detail', email
         %td= link_to 'Zmazať', email, data: { confirm: 'Ste si istý?' }, method: :delete
 
-%p
-  = link_to 'Zmazať všetky emaily', emails_path, data: { confirm: 'Ste si istý?' }, method: :delete
 %p
   = link_to 'Stiahnuť emaily', process_download_path
   |
@@ -40,3 +38,5 @@
 
 %p
   = link_to 'Spustiť proces', process_start_path
+  |
+  = link_to 'Zmazať všetky emaily', emails_path, data: { confirm: 'Ste si istý?' }, method: :delete

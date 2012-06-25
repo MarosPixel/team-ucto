@@ -10,20 +10,15 @@ module PostingsHelper
       when 'Tournament'
         'turnaj'
       else # 'OtherExpense'
-        '-' # TODO
+        'platba za akciu' # TODO
       end
     when 'ExpensePosting'
-      'expense posting' # TODO
+      'výdavok za akciu' # TODO
     when 'UserPosting'
-      'user posting' # TODO
+      'bankový prevod' # TODO
     else
       '-'
     end
-  end
-
-  def number_to_price(num)
-    num = 0 if num.nil?
-    content_tag(:span, number_to_currency(num),:class => "c-#{price_to_color(num)}")
   end
 
   def price_to_color(num)
@@ -51,9 +46,9 @@ module PostingsHelper
         'ParticipationPosting: TODO' # TODO
       end
     when 'ExpensePosting'
-      'ExpensePosting: TODO' # TODO
+      'Platba tréningu, turnaj alebo iný výdavok'
     when 'UserPosting'
-      'UserPosting: TODO' # TODO
+      'Platba na účet' # TODO
     else
       '-'
     end

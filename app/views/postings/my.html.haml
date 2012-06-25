@@ -1,6 +1,8 @@
 %h1 Moje výdavky
 
-%p.balance= number_to_price @balance
+%p
+  Zostatok:
+  = number_to_price @balance
 
 %table
   %tr
@@ -11,6 +13,6 @@
   - @postings.each do |posting|
     %tr
       %td.c-gray= posting.created_at.strftime '%d.%m.%Y'
-      %td= posting_type_to_text posting
-      %td= number_to_price posting.price
+      %td.tcenter= posting_type_to_text posting
+      %td.tright= number_to_price posting.price
       %td.tleft= posting_detail_to_text posting
